@@ -1,0 +1,27 @@
+{
+  "name": "Connect",
+  "version": "0.0.1",
+  "description": "Website for Connect for Mental Health",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jenSadler/Connect.git"
+  },
+  "keywords": [
+    "connect"
+  ],
+  "author": "Jennifer Sadler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jenSadler/Connect/issues"
+  },
+  "homepage": "https://github.com/jenSadler/Connect",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-sass": "^0.8.1",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}

@@ -2,8 +2,15 @@
   margin: 0;
   padding: 0; }
 
+#crisisNav {
+  color: #ff9933; }
+
 nav a {
-  text-decoration: none; }
+  text-decoration: none;
+  font-family: 'Raleway', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: #fcfcfc; }
 
 nav li {
   list-style: none; }
@@ -23,20 +30,15 @@ nav > div > ul {
 nav > div > ul > li {
   width: 20%;
   display: block;
-  float: left;
-  text-align: center; }
+  float: left; }
 
 nav > div > ul > li > a {
   position: relative;
   display: block;
   z-index: 510;
   height: 50px;
-  padding: 0 20px;
+  padding: 0 5px;
   line-height: 50px;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  font-size: 13px;
-  color: #fcfcfc;
   background-color: #993399;
   -webkit-transition: all .3s ease;
   -moz-transition: all .3s ease;
@@ -45,13 +47,12 @@ nav > div > ul > li > a {
   transition: all .3s ease; }
 
 nav > div > ul > li:hover > a {
-  background: #4b4441; }
+  background: #CC99CC; }
 
 nav > div > ul > li > div {
   position: absolute;
   display: block;
   width: 100%;
-  top: 45px;
   left: 0;
   opacity: 0;
   visibility: hidden;
@@ -71,9 +72,10 @@ nav > div > ul > li:hover > div {
 
 nav .navInfoColumn {
   float: left;
-  width: 30%;
-  padding: 5%;
-  margin: 20px 0 10px 0;
+  width: 20%;
+  height: 350px;
+  padding: 2.5% 5% 2.5% 0%;
+  margin: 10px 0;
   border-right: 1px solid #cccccc; }
 
 nav .navInfoColumn h1 {
@@ -100,5 +102,54 @@ nav .navLinksColumn {
   width: 40%;
   padding: 5%;
   margin: 20px 0 10px 0; }
+
+#searchContainer {
+  display: inline-block;
+  padding: 7px 10px 2px 10px;
+  background-color: #993399;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px; }
+
+input.searchBox {
+  vertical-align: top;
+  border-radius: 2px;
+  border: none;
+  height: 25px; }
+
+div.loginLinks {
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px; }
+
+div.loginLinks a {
+  font-family: 'Raleway', Arial, sans-serif;
+  color: #993399;
+  text-decoration: none;
+  padding: 3px; }
+
+div#socialBar {
+  float: right;
+  vertical-align: top;
+  margin-right: 10%; }
+
+img.logo {
+  display: inline-block;
+  margin: 10px 0px 30px 0px; }
+
+div#slogan {
+  clear: both;
+  float: right;
+  margin-right: 15%;
+  padding: 20px; }
+
+div#slogan h1 {
+  color: #CC99CC;
+  font-family: 'Raleway', Arial, sans-serif;
+  display: block;
+  font-size: 25px; }
+
+h1.slogan2 {
+  position: relative;
+  left: 100px; }
 
 /*# sourceMappingURL=navigation.css.map */

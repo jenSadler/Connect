@@ -52,7 +52,7 @@
 				<div class ="alignment">
 					<div class="navInfoColumn">
 
-					    <h1>Resources</h1>
+					    <h1>Links</h1>
 					    <?php wp_nav_menu( array( 'theme_location' => 'crisis-resources' ) ); ?>
 					</div>
 					 
@@ -75,11 +75,8 @@
 					    <h1 >Programs</h1>
 					    <?php wp_nav_menu( array( 'theme_location' => 'support-programs' ) ); ?>
 
-					    <h1>Resources</h1>
+					    <h1>Links</h1>
 					    <?php wp_nav_menu( array( 'theme_location' => 'support-resources' ) ); ?>
-					
-					    <h1>News</h1>
-					    <?php echo getPostLinksForCategory('support')?>
 					</div>
 					 
 					<div class="navLinksColumn">
@@ -98,11 +95,11 @@
 					<div class="navInfoColumn">
 					    <h1>Events</h1>
 					   <?php wp_nav_menu( array( 'theme_location' => 'education-events' ) ); ?>
-
-					   <h1>Resources</h1>
+						
+					   
+					   <h1>Links</h1>
 					   <?php wp_nav_menu( array( 'theme_location' => 'education-resources' ) ); ?>
-					    <h1>News</h1>
-					    <?php echo getPostLinksForCategory('education')?>
+					    
 					</div>
 					 
 					<div class="navLinksColumn">
@@ -122,8 +119,6 @@
 					   <?php wp_nav_menu( array( 'theme_location' => 'outreach-information' ) ); ?>
 
 					    
-					   <h1>News</h1>
-					   <?php echo getPostLinksForCategory('outreach')?>
 					</div>
 						 
 					<div class="navLinksColumn">
@@ -148,8 +143,7 @@
 					   <h1>Social</h1>
 					   <?php wp_nav_menu( array( 'theme_location' => 'involved-social' ) ); ?>
 
-					     <h1>News</h1>
-					    <?php echo getPostLinksForCategory('get-involved')?>
+					   
 					</div>
 					 
 					<div class="navLinksColumn">

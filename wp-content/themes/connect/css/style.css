@@ -6,10 +6,38 @@ Author: Your name or WordPress.org's username
 Author URI: Your web address
 Tags: Tags to locate your theme in the WordPress theme repository
 */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', Arial, sans-serif;
+  color: #383838; }
+
 .alignment {
   min-width: 800px;
   max-width: 1280px;
   margin: 0 auto;
   overflow: hidden; }
+
+h1 {
+  font-family: 'Raleway', Arial, sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  margin: 20px 0px 10px 0px; }
+
+h2 {
+  font-family: 'Raleway', Arial, sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  margin: 20px 0px 10px 0px; }
+
+p {
+  font-family: 'Raleway', Arial, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0px 0px 10px 0px; }
+
+section {
+  width: 50%;
+  margin: 4% 1% 1% 40%; }
 
 /*# sourceMappingURL=style.css.map */

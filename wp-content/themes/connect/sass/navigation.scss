@@ -1,12 +1,9 @@
 $connectPurple : #993399;
 $connectOrange :#ff9933;
 $connectLightPurple:#CC99CC;
-
-*{
-	margin:0;
-	padding: 0;
-}
-
+$connectHeaderGray:#F5F5F5;
+$connectText:#383838;
+$navigationGrey:#E6E6E6;
 #crisisNav{
 
     color:$connectOrange;
@@ -73,7 +70,7 @@ nav > div> ul > li > div {
     visibility: hidden;
     overflow: hidden;
  
-    background: #ffffcc;
+    background: $navigationGrey;
     border-radius: 0 0 3px 3px;
  
     -webkit-transition: all .3s ease .15s;
@@ -92,8 +89,8 @@ nav > div > ul > li:hover > div {
 nav .navInfoColumn{
 
 	float: left;
-    width: 20%;
-    height:350px;
+    width: 25%;
+    height:375px;
     padding: 2.5% 5% 2.5% 0%;
     margin: 10px 0 ;
     border-right:1px solid #cccccc;
@@ -103,10 +100,9 @@ nav .navInfoColumn h1 {
     
     line-height: 18px;
  
-    font-family: Helvetica, Arial, sans-serif;
     font-weight: bold;
     font-size: 14px;
-    color: #372f2b;
+    color: $connectPurple;
     text-transform: uppercase;
 }
 
@@ -115,10 +111,9 @@ nav .navInfoColumn li a {
     display: block;
     line-height: 26px;
  
-    font-family: Helvetica, Arial, sans-serif;
     font-weight: bold;
     font-size: 13px;
-    color: #888888;
+    color: $connectText;
 }
  
 nav .navInfoColumn li a:hover { color: #666666; }
@@ -171,28 +166,37 @@ div#socialBar{
     float:right;
     vertical-align: top;
     margin-right:10%;
+
 }
 
 img.logo{
-    display:inline-block;
-    margin:10px 0px 30px 0px;
+    margin:10px 0px 20px 0px;
+    float:left;
 }
 
 div#slogan{
-    clear:both;
+    width:300px;
+    clear:right;
     float:right;
     margin-right:15%;
-    padding:20px;
+    padding:15px 0px;
+    overflow: hidden;
 }
 
 div#slogan h1{
     color:$connectLightPurple;
     font-family: 'Raleway', Arial, sans-serif;
-    display:block;
     font-size:25px;
+    margin:0;
 }
 
 h1.slogan2{
     position:relative;
     left:100px;
+}
+
+header{
+    width:100%;
+    background-color:$connectHeaderGray;
+
 }

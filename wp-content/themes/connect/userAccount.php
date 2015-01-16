@@ -31,6 +31,7 @@ if(!empty($_POST['action'])){
 ?>
 
 <?php get_header(); ?>
+<div class="alignment">
 <?php while (have_posts()) : the_post();?>
 <div class="post">
         <h2 id="post-<?php the_ID(); ?>"><?php the_title();?></h2>
@@ -154,5 +155,5 @@ if(!empty($_POST['action'])){
 <?php } ?>
 
 </form>
-
+</div>
 <?php get_footer(); ?>

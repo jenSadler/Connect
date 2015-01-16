@@ -4,14 +4,14 @@ module.exports = function(grunt) {
 		sass: {
 			dist: {
 				files: {
-					'/wordpress/wp-content/themes/connect/style.css' : '/wordpress/wp-content/themes/connect/sass/style.scss',
-					'/wordpress/wp-content/themes/connect/navigation.css' : '/wordpress/wp-content/themes/connect/sass/navigation.scss'
+					'wp-content/themes/connect/css/style.css' : 'wp-content/themes/connect/sass/style.scss',
+					'wp-content/themes/connect/css/navigation.css' : 'wp-content/themes/connect/sass/navigation.scss'
 				}
 			}
 		},
 		watch: {
 			css: {
-				files: '/wordpress/wp-content/themes/connect/sass/*.scss',
+				files: 'wp-content/themes/connect/sass/*.scss',
 				tasks: ['sass']
 			}
 		}

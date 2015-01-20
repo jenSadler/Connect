@@ -44,7 +44,10 @@ function getPostLinksForCategory($category){
 	return $links;
 }
 
+function generateSidebar(){
+	
 
+}
 
 function loginLink(){
 

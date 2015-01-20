@@ -24,9 +24,10 @@
 
 <body>
 
+<div id="container">
 <header>
 	<div class="alignment">
-		<img class="logo" src="<?php bloginfo('template_directory'); ?>/images/logo.png"/>
+		<a href = "<?php echo esc_url(home_url('/'));?>"><img class="logo" src="<?php bloginfo('template_directory'); ?>/images/logo.png"/></a>
 
 		<div id="socialBar">
 			<?php echo loginLink();?>

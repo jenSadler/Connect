@@ -9,7 +9,7 @@ Tags: Tags to locate your theme in the WordPress theme repository
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Raleway', Arial, sans-serif;
+  font-family: "Raleway", Arial, sans-serif;
   color: #383838; }
 
 .alignment {
@@ -18,26 +18,59 @@ Tags: Tags to locate your theme in the WordPress theme repository
   margin: 0 auto;
   overflow: hidden; }
 
+#container {
+  min-height: 100%;
+  position: relative; }
+
+#body {
+  padding-bottom: 200px; }
+
+html, body {
+  height: 100%; }
+
 h1 {
-  font-family: 'Raleway', Arial, sans-serif;
-  font-size: 40px;
+  font-family: "Raleway", Arial, sans-serif;
+  font-size: 50px;
   font-weight: bold;
   margin: 20px 0px 10px 0px; }
 
 h2 {
-  font-family: 'Raleway', Arial, sans-serif;
+  font-family: "Raleway", Arial, sans-serif;
   font-size: 25px;
   font-weight: bold;
   margin: 20px 0px 10px 0px; }
 
 p {
-  font-family: 'Raleway', Arial, sans-serif;
+  font-family: "Raleway", Arial, sans-serif;
   font-size: 15px;
-  font-weight: bold;
   margin: 0px 0px 10px 0px; }
 
 section {
   width: 50%;
-  margin: 4% 1% 1% 40%; }
+  margin: 5% 1% 5% 40%; }
+
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 200px;
+  background-color: #383838; }
+
+footer h1 {
+  font-size: 15px;
+  color: #ff9933;
+  font-family: "Raleway", Arial, sans-serif; }
+
+footer section {
+  width: 30%;
+  margin: 1% 1% 1% 1%;
+  display: inline-block;
+  vertical-align: top; }
+
+footer li, footer p {
+  font-family: "Raleway", Arial, sans-serif;
+  color: white;
+  font-size: 13px;
+  font-weight: normal; }
 
 /*# sourceMappingURL=style.css.map */

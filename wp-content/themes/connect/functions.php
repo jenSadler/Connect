@@ -45,7 +45,7 @@ function getPostLinksForCategory($category){
 }
 
 function generateSidebar(){
-	
+
 
 }
 
@@ -87,26 +87,7 @@ function remove_admin_bar() {
 }
 
 function register_my_menus() {
-  register_nav_menus(
-    array(
-      'support-programs' => __( 'Support - Programs' ),
-      'support-resources'=> __('Support - Resources'),
-      'support-actions'=> __('Support - Actions'),
-
-      'education-events' => __( 'Education - Events' ),
-      'education-resources' => __( 'Education - Resources' ),
-      'education-actions' => __( 'Education - Actions' ),
-
-      'outreach-information' => __('Outreach - Information'),
-      'outreach-actions' => __('Outreach - Actions'),
-
-      'involved-community' => __('Get Involved - Community'),
-      'involved-social' => __('Get Involved - Social'),
-      'involved-actions' => __('Get Involved - Actions'),
-
-      'crisis-resources'=> __('In Crisis - Resources')
-    )
-  );
+  register_nav_menu('top-menu', 'Main Navigation' );
 
 }
 

@@ -46,6 +46,9 @@
 
 <nav>
 	<div class="alignment">
+
+		 <?php wp_nav_menu(); ?>
+
 	<ul>
 
 		<li><a href="#" id="crisisNav">In Crisis?</a>
@@ -54,7 +57,6 @@
 					<div class="navInfoColumn">
 
 					    <h1>Links</h1>
-					    <?php wp_nav_menu( array( 'theme_location' => 'crisis-resources' ) ); ?>
 					</div>
 					 
 					<div class="navLinksColumn">
@@ -74,10 +76,8 @@
 				<div class ="alignment">
 					<div class="navInfoColumn">
 					    <h1 >Programs</h1>
-					    <?php wp_nav_menu( array( 'theme_location' => 'support-programs' ) ); ?>
-
+					  
 					    <h1>Links</h1>
-					    <?php wp_nav_menu( array( 'theme_location' => 'support-resources' ) ); ?>
 					</div>
 					 
 					<div class="navLinksColumn">
@@ -95,16 +95,13 @@
 				<div class ="alignment">
 					<div class="navInfoColumn">
 					    <h1>Events</h1>
-					   <?php wp_nav_menu( array( 'theme_location' => 'education-events' ) ); ?>
 						
 					   
 					   <h1>Links</h1>
-					   <?php wp_nav_menu( array( 'theme_location' => 'education-resources' ) ); ?>
 					    
 					</div>
 					 
 					<div class="navLinksColumn">
-					    <?php wp_nav_menu( array( 'theme_location' => 'education-actions' ) ); ?>
 					 
 					    <p>Lorum Ipsum dolor sit</p>
 					</div>
@@ -117,14 +114,12 @@
 				<div class ="alignment">
 					<div class="navInfoColumn">
 					    <h1>Information</h1>
-					   <?php wp_nav_menu( array( 'theme_location' => 'outreach-information' ) ); ?>
 
 					    
 					</div>
 						 
 					<div class="navLinksColumn">
 						  
-					   <?php wp_nav_menu( array( 'theme_location' => 'outreach-actions' ) ); ?>
 						 
 					    <p>Lorum Ipsum dolor sit</p>
 					</div>	
@@ -139,17 +134,14 @@
 				<div class ="alignment">
 					<div class="navInfoColumn">
 					    <h1>Community</h1>
-					   <?php wp_nav_menu( array( 'theme_location' => 'involved-menu' ) ); ?>
 
 					   <h1>Social</h1>
-					   <?php wp_nav_menu( array( 'theme_location' => 'involved-social' ) ); ?>
 
 					   
 					</div>
 					 
 					<div class="navLinksColumn">
 					  
-					    <?php wp_nav_menu( array( 'theme_location' => 'involved-actions' ) ); ?>
 					 
 					    <p>Lorum Ipsum dolor sit</p>
 					</div>

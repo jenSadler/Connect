@@ -1,5 +1,9 @@
-#crisisNav {
+.crisisNav {
   color: #ff9933; }
+
+.crisisNav:hover {
+  color: white;
+  background-color: #ff9933; }
 
 nav a {
   text-decoration: none;
@@ -33,7 +37,7 @@ nav > div > ul > li > a {
   display: block;
   z-index: 510;
   height: 50px;
-  padding: 0 5px;
+  padding: 0 15%;
   line-height: 50px;
   background-color: #993399;
   -webkit-transition: all .3s ease;
@@ -43,7 +47,7 @@ nav > div > ul > li > a {
   transition: all .3s ease; }
 
 nav > div > ul > li:hover > a {
-  background: #CC99CC; }
+  background: #ff9933; }
 
 nav > div > ul > li > div {
   position: absolute;
@@ -68,9 +72,9 @@ nav > div > ul > li:hover > div {
 
 nav .navInfoColumn {
   float: left;
-  width: 25%;
-  height: 375px;
-  padding: 2.5% 5% 2.5% 0%;
+  width: 20%;
+  height: 400px;
+  padding: 2.5% 5% 2.5% 5%;
   margin: 10px 0;
   border-right: 1px solid #cccccc; }
 
@@ -89,7 +93,7 @@ nav .navInfoColumn li a {
   color: #383838; }
 
 nav .navInfoColumn li a:hover {
-  color: #666666; }
+  color: #ff9933; }
 
 nav .navLinksColumn {
   float: left;
@@ -116,7 +120,6 @@ div.loginLinks {
   padding: 10px; }
 
 div.loginLinks a {
-  font-family: 'Raleway', Arial, sans-serif;
   color: #993399;
   text-decoration: none;
   padding: 3px; }
@@ -140,7 +143,6 @@ div#slogan {
 
 div#slogan h1 {
   color: #CC99CC;
-  font-family: 'Raleway', Arial, sans-serif;
   font-size: 25px;
   margin: 0; }
 

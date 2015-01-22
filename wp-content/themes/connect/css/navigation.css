@@ -77,13 +77,14 @@ nav > div > ul > li:hover > a {
 nav > div > ul > li > div {
   position: absolute;
   display: block;
-  width: 100%;
+  width: 95%;
   left: 0;
   opacity: 0;
   visibility: hidden;
   overflow: hidden;
   background: #E6E6E6;
   border-radius: 0 0 3px 3px;
+  padding: 2.5%;
   -webkit-transition: all .3s ease .15s;
   -moz-transition: all .3s ease .15s;
   -o-transition: all .3s ease .15s;
@@ -96,11 +97,11 @@ nav > div > ul > li:hover > div {
   overflow: visible; }
 
 nav .navInfoColumn {
+  clear: both;
   float: left;
-  width: 20%;
-  height: 400px;
-  padding: 2.5% 5% 2.5% 5%;
-  margin: 10px 0;
+  width: 25%;
+  padding: 0 0 0 0;
+  margin: 0 5% 0 0;
   border-right: 1px solid #cccccc; }
 
 nav .navInfoColumn h1 {
@@ -121,9 +122,8 @@ nav .navInfoColumn li a:hover {
   color: #ff9933; }
 
 nav .navLinksColumn {
-  float: left;
-  width: 40%;
-  padding: 5%;
+  vertical-align: top;
+  width: 90%;
   margin: 20px 0 10px 0; }
 
 #searchContainer {

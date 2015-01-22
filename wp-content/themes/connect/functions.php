@@ -100,18 +100,18 @@ class MegaMenu extends walker_nav_menu {
 	// Don't start the top level
     function start_lvl(&$output, $depth=0, $args=array()) {
 
-    	if( $depth == 1){
+    	// if( $depth == 1){
         
-   		 $output .= "<ul>";
-   		}
+   		//  $output .= "<div class="navInfoColumn"><ul>";
+   		// }
     }
  
     // Don't end the top level
     function end_lvl(&$output, $depth=0, $args=array()) {
-    	if($depth == 1){
+    	// if($depth == 1){
       		 
-   	   		$output .= "</ul>";
-   		}
+   	 //   		$output .= "</ul>'</div>";
+   		// }
     }
 
 	 function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
@@ -154,7 +154,7 @@ class MegaMenu extends walker_nav_menu {
     $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
     $item_output .= '</a>';
 
-    $item_output .= '<div><div class="alignment"><div class="navInfoColumn">';
+    $item_output .= '<div><div class="alignment">';
 
 
    // $item_output .= $args->after;
@@ -170,8 +170,18 @@ class MegaMenu extends walker_nav_menu {
   
 
   		$item_output = $args->before;
-  		$item_output .= '<h1>'.$args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after.'</h1>';
-		$item_output .= $args->after;
+
+  		if($item->title == "Actions"){
+			$item_output .= '<div class="navLinksColumn">';
+			$item_output .=  apply_filters( 'the_description', $item->description, $item->ID );
+			$item_output .= "<ul>";
+		}
+		else{
+			$item_output .= '<div class="navInfoColumn">';
+			$item_output .='<h1>'.$args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after.'</h1><ul>';
+			$item_output .= $args->after;
+		}
+  		
 		 $output .= $item_output;
   	}
   	else if ($depth == 2){
@@ -192,9 +202,12 @@ class MegaMenu extends walker_nav_menu {
   function end_el( &$output, $item, $depth = 0, $args = array() ) {
   	if($depth == 0){
   		
-    	$item_output = '</div><div class="navLinksColumn">'.$item_output .= apply_filters( 'the_description', $item->description, $item->ID ).'</div>';
     	$item_output .= '</div></div></li>';
     	$output .=$item_output;
+	}
+	else if($depth ==1){
+
+		$output .="</ul></div>";
 	}
 
 	else if($depth==2){

@@ -26,6 +26,7 @@
 
 <div id="container">
 <header>
+
 	<div class="alignment">
 		<a href = "<?php echo esc_url(home_url('/'));?>"><img class="logo" src="<?php bloginfo('template_directory'); ?>/images/logo.png"/></a>
 
@@ -44,11 +45,12 @@
 		</div>
 	</div>
 
+	<nav>
+		 <?php wp_nav_menu(array('menu'=>'top-menu','container_class' => 'alignment','walker'=> new MegaMenu()) ); ?>
+	</nav>
+<!--
 <nav>
-	<div class="alignment">
-
-		 <?php wp_nav_menu(); ?>
-
+	<div class= "alignment">
 	<ul>
 
 		<li><a href="#" id="crisisNav">In Crisis?</a>
@@ -152,4 +154,5 @@
 	</ul>
 </div>
 </nav>
+-->
 </header>

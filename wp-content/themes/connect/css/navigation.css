@@ -32,6 +32,9 @@ nav > div > ul > li {
   display: block;
   float: left; }
 
+nav > div > ul > li.active > a {
+  background: #CC99CC; }
+
 nav > div > ul > li > a {
   position: relative;
   display: block;

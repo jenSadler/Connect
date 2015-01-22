@@ -33,9 +33,11 @@ nav > div > ul > li {
   float: left; }
 
 nav > div > ul > li.active > a {
+  color: white;
   background: #CC99CC; }
 
 nav > div > ul > li.current_page_ancestor > a {
+  color: white;
   background: #CC99CC; }
 
 nav > div > ul > li.active.crisisNav > a {
@@ -45,6 +47,14 @@ nav > div > ul > li.active.crisisNav > a {
 nav > div > ul > li.current_page_ancestor.crisisNav > a {
   color: white;
   background: #CC99CC; }
+
+nav > div > ul > li.active.crisisNav > a:hover {
+  color: white;
+  background: #ff9933; }
+
+nav > div > ul > li.current_page_ancestor.crisisNav > a:hover {
+  color: white;
+  background: #ff9933; }
 
 nav > div > ul > li > a {
   position: relative;
@@ -61,6 +71,7 @@ nav > div > ul > li > a {
   transition: all .3s ease; }
 
 nav > div > ul > li:hover > a {
+  color: white;
   background: #ff9933; }
 
 nav > div > ul > li > div {

@@ -50,13 +50,19 @@ nav > div> ul > li{
     
 }
 
-nav > div> ul > li.active > a{ background: $connectLightPurple; }
+nav > div> ul > li.active > a{color:white; background: $connectLightPurple; }
 
-nav > div> ul > li.current_page_ancestor > a{ background: $connectLightPurple; }
+nav > div> ul > li.current_page_ancestor > a{ color:white; background: $connectLightPurple; }
 
 nav > div> ul > li.active.crisisNav > a{color:white; background:  $connectLightPurple; }
 
 nav > div> ul > li.current_page_ancestor.crisisNav > a{ color:white; background: $connectLightPurple; }
+
+nav > div> ul > li.active.crisisNav > a:hover{color:white; background:  $connectOrange; }
+
+nav > div> ul > li.current_page_ancestor.crisisNav > a:hover{ color:white; background: $connectOrange; }
+
+
 nav > div> ul > li > a {
     position: relative;
     display: block;
@@ -73,7 +79,7 @@ nav > div> ul > li > a {
     transition: all .3s ease;
 }
 
-nav > div > ul > li:hover > a { background: $connectOrange; }
+nav > div > ul > li:hover > a {color:white; background: $connectOrange; }
 
 
 nav > div> ul > li > div {

@@ -1,7 +1,7 @@
-.crisisNav {
+.crisisNav > a {
   color: #ff9933; }
 
-.crisisNav:hover {
+.crisisNav > a:hover {
   color: white;
   background-color: #ff9933; }
 
@@ -33,6 +33,17 @@ nav > div > ul > li {
   float: left; }
 
 nav > div > ul > li.active > a {
+  background: #CC99CC; }
+
+nav > div > ul > li.current_page_ancestor > a {
+  background: #CC99CC; }
+
+nav > div > ul > li.active.crisisNav > a {
+  color: white;
+  background: #CC99CC; }
+
+nav > div > ul > li.current_page_ancestor.crisisNav > a {
+  color: white;
   background: #CC99CC; }
 
 nav > div > ul > li > a {

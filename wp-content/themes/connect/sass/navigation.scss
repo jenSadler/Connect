@@ -4,12 +4,12 @@ $connectLightPurple:#CC99CC;
 $connectHeaderGray:#F5F5F5;
 $connectText:#383838;
 $navigationGrey:#E6E6E6;
-.crisisNav{
+.crisisNav > a{
 
     color:$connectOrange;
 }
 
-.crisisNav:hover{
+.crisisNav > a:hover{
 
     color:white;
     background-color: $connectOrange;
@@ -52,6 +52,11 @@ nav > div> ul > li{
 
 nav > div> ul > li.active > a{ background: $connectLightPurple; }
 
+nav > div> ul > li.current_page_ancestor > a{ background: $connectLightPurple; }
+
+nav > div> ul > li.active.crisisNav > a{color:white; background:  $connectLightPurple; }
+
+nav > div> ul > li.current_page_ancestor.crisisNav > a{ color:white; background: $connectLightPurple; }
 nav > div> ul > li > a {
     position: relative;
     display: block;

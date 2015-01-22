@@ -2,8 +2,9 @@
 <div id="body">
 <div class="alignment">
 
-	<nav id="sideBar">
-		<?php generateSidebar()?>
+	<nav id="sideMenu">
+		<?php wp_nav_menu(array('menu'=>'side-menu','container_id' => 'sideNav','walker'=> new SideMenu()) ); ?>
+
 	</nav>
 	<section>
 <?php if (have_posts()) : while (have_posts()) : the_post();?>

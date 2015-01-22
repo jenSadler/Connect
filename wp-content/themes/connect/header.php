@@ -45,8 +45,8 @@
 		</div>
 	</div>
 
-	<nav>
-		 <?php wp_nav_menu(array('menu'=>'top-menu','container_class' => 'alignment','walker'=> new MegaMenu()) ); ?>
+	<nav id= "mainMenu">
+		 <?php wp_nav_menu(array('menu'=>'top-menu','container_id'=>'mainNav','container_class' => 'alignment','walker'=> new MegaMenu()) ); ?>
 	</nav>
 <!--
 <nav>

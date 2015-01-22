@@ -28,8 +28,7 @@ $footerHeight:200px;
 }
 
 
-.alignment{
-
+.alignment{ 
 	min-width:800px;
 	max-width: 1280px;
 	margin:0 auto;
@@ -44,7 +43,7 @@ $footerHeight:200px;
 
 #body{
 
-	padding-bottom: $footerHeight;
+	padding-bottom:$footerHeight;
 }
 
 html,body{
@@ -73,8 +72,12 @@ p{
 }
 
 section{
-	width:50%;
-	margin:5% 1% 5% 40%;
+	
+	display: inline-block;
+	width:60%;
+	vertical-align: top;
+	padding:2.5%;
+	overflow: hidden;
 
 }
 

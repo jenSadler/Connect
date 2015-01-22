@@ -5,17 +5,17 @@
   color: white;
   background-color: #ff9933; }
 
-nav a {
+nav#mainMenu a {
   text-decoration: none;
   font-family: 'Raleway', Arial, sans-serif;
   font-weight: bold;
   font-size: 16px;
   color: #fcfcfc; }
 
-nav li {
+nav#mainMenu li {
   list-style: none; }
 
-nav {
+nav#mainMenu {
   width: 100%;
   display: inline-block;
   position: relative;
@@ -23,40 +23,40 @@ nav {
   z-index: 500;
   background-color: #993399; }
 
-nav > div > ul {
+nav#mainMenu > div#mainNav > ul {
   width: 100%;
   overflow: hidden; }
 
-nav > div > ul > li {
+nav#mainMenu > div#mainNav > ul > li {
   width: 20%;
   display: block;
   float: left; }
 
-nav > div > ul > li.active > a {
+nav#mainMenu > div#mainNav > ul > li.active > a {
   color: white;
   background: #CC99CC; }
 
-nav > div > ul > li.current_page_ancestor > a {
+nav#mainMenu > div#mainNav > ul > li.current_page_ancestor > a {
   color: white;
   background: #CC99CC; }
 
-nav > div > ul > li.active.crisisNav > a {
+nav#mainMenu > div#mainNav > ul > li.active.crisisNav > a {
   color: white;
   background: #CC99CC; }
 
-nav > div > ul > li.current_page_ancestor.crisisNav > a {
+nav#mainMenu > div#mainNav > ul > li.current_page_ancestor.crisisNav > a {
   color: white;
   background: #CC99CC; }
 
-nav > div > ul > li.active.crisisNav > a:hover {
+nav#mainMenu > div#mainNav > ul > li.active.crisisNav > a:hover {
   color: white;
   background: #ff9933; }
 
-nav > div > ul > li.current_page_ancestor.crisisNav > a:hover {
+nav#mainMenu > div#mainNav > ul > li.current_page_ancestor.crisisNav > a:hover {
   color: white;
   background: #ff9933; }
 
-nav > div > ul > li > a {
+nav#mainMenu > div#mainNav > ul > li > a {
   position: relative;
   display: block;
   z-index: 510;
@@ -70,11 +70,11 @@ nav > div > ul > li > a {
   -ms-transition: all .3s ease;
   transition: all .3s ease; }
 
-nav > div > ul > li:hover > a {
+nav#mainMenu > div#mainNav > ul > li:hover > a {
   color: white;
   background: #ff9933; }
 
-nav > div > ul > li > div {
+nav#mainMenu > div#mainNav > ul > li > div {
   position: absolute;
   display: block;
   width: 95%;
@@ -91,12 +91,12 @@ nav > div > ul > li > div {
   -ms-transition: all .3s ease .15s;
   transition: all .3s ease .15s; }
 
-nav > div > ul > li:hover > div {
+nav#mainMenu > div#mainNav > ul > li:hover > div {
   opacity: 1;
   visibility: visible;
   overflow: visible; }
 
-nav .navInfoColumn {
+nav#mainMenu .navInfoColumn {
   clear: both;
   float: left;
   width: 25%;
@@ -104,27 +104,27 @@ nav .navInfoColumn {
   margin: 0 5% 0 0;
   border-right: 1px solid #cccccc; }
 
-nav .navInfoColumn h1 {
+nav#mainMenu .navInfoColumn h1 {
   line-height: 18px;
   font-weight: bold;
   font-size: 14px;
   color: #993399;
   text-transform: uppercase; }
 
-nav .navInfoColumn li a {
+nav#mainMenu .navInfoColumn li a {
   display: block;
   line-height: 26px;
   font-weight: bold;
   font-size: 13px;
   color: #383838; }
 
-nav .navInfoColumn li a:hover {
+nav#mainMenu .navInfoColumn li a:hover {
   color: #ff9933; }
 
-nav .navLinksColumn {
+nav#mainMenu .navLinksColumn {
   vertical-align: top;
   width: 90%;
-  margin: 20px 0 10px 0; }
+  display: block; }
 
 #searchContainer {
   display: inline-block;
@@ -178,5 +178,48 @@ h1.slogan2 {
 header {
   width: 100%;
   background-color: #F5F5F5; }
+
+nav#sideMenu li {
+  list-style: none; }
+
+nav#sideMenu {
+  width: 20%;
+  display: inline-block;
+  background-color: white;
+  color: black;
+  vertical-align: top;
+  padding: 2.5%;
+  margin: 2.5%;
+  overflow: hidden;
+  height: 100%;
+  border-right: 1px solid #F5F5F5; }
+
+nav#sideMenu > div > ul > li > a {
+  font-size: 30px;
+  color: #383838;
+  pointer-events: none;
+  cursor: default;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #F5F5F5;
+  margin-bottom: 20px; }
+
+nav#sideMenu > div > ul > li > ul > li {
+  margin-top: 20px; }
+
+nav#sideMenu > div > ul > li > ul > li > a {
+  pointer-events: none;
+  cursor: default;
+  text-transform: uppercase; }
+
+nav#sideMenu > div > ul > li > ul > li > ul > li {
+  margin-left: 20px;
+  list-style-type: none; }
+
+nav#sideMenu > div ul li a {
+  text-decoration: none;
+  font-weight: bold; }
+
+nav#sideMenu > div > ul > li > ul > li > ul > li.current-menu-item a {
+  color: #ff9933; }
 
 /*# sourceMappingURL=navigation.css.map */

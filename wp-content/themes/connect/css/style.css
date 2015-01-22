@@ -46,8 +46,11 @@ p {
   margin: 0px 0px 10px 0px; }
 
 section {
-  width: 50%;
-  margin: 5% 1% 5% 40%; }
+  display: inline-block;
+  width: 60%;
+  vertical-align: top;
+  padding: 2.5%;
+  overflow: hidden; }
 
 footer {
   width: 100%;

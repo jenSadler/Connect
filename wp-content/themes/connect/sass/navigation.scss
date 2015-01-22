@@ -17,7 +17,7 @@ $navigationGrey:#E6E6E6;
 
 
 
-nav a { 
+nav#mainMenu a { 
     text-decoration: none; 
     font-family: 'Raleway', Arial, sans-serif;
     font-weight: bold;
@@ -25,9 +25,9 @@ nav a {
     color: #fcfcfc;
 }
  
-nav li { list-style: none; }
+nav#mainMenu li { list-style: none; }
 
-nav{
+nav#mainMenu{
     width:100%; 
 	display: inline-block;
 	position:relative;
@@ -36,13 +36,13 @@ nav{
     background-color: $connectPurple; 
 }
 
-nav > div > ul{
+nav#mainMenu > div#mainNav > ul{
 
     width:100%;
     overflow:hidden;
 }
 
-nav > div> ul > li{
+nav#mainMenu > div#mainNav> ul > li{
 	width:20%;
 
     display:block;
@@ -50,20 +50,20 @@ nav > div> ul > li{
     
 }
 
-nav > div> ul > li.active > a{color:white; background: $connectLightPurple; }
+nav#mainMenu > div#mainNav> ul > li.active > a{color:white; background: $connectLightPurple; }
 
-nav > div> ul > li.current_page_ancestor > a{ color:white; background: $connectLightPurple; }
+nav#mainMenu > div#mainNav> ul > li.current_page_ancestor > a{ color:white; background: $connectLightPurple; }
 
-nav > div> ul > li.active.crisisNav > a{color:white; background:  $connectLightPurple; }
+nav#mainMenu > div#mainNav> ul > li.active.crisisNav > a{color:white; background:  $connectLightPurple; }
 
-nav > div> ul > li.current_page_ancestor.crisisNav > a{ color:white; background: $connectLightPurple; }
+nav#mainMenu > div#mainNav> ul > li.current_page_ancestor.crisisNav > a{ color:white; background: $connectLightPurple; }
 
-nav > div> ul > li.active.crisisNav > a:hover{color:white; background:  $connectOrange; }
+nav#mainMenu > div#mainNav> ul > li.active.crisisNav > a:hover{color:white; background:  $connectOrange; }
 
-nav > div> ul > li.current_page_ancestor.crisisNav > a:hover{ color:white; background: $connectOrange; }
+nav#mainMenu > div#mainNav> ul > li.current_page_ancestor.crisisNav > a:hover{ color:white; background: $connectOrange; }
 
 
-nav > div> ul > li > a {
+nav#mainMenu > div#mainNav> ul > li > a {
     position: relative;
     display: block;
     z-index: 510;
@@ -79,10 +79,10 @@ nav > div> ul > li > a {
     transition: all .3s ease;
 }
 
-nav > div > ul > li:hover > a {color:white; background: $connectOrange; }
+nav#mainMenu > div#mainNav > ul > li:hover > a {color:white; background: $connectOrange; }
 
 
-nav > div> ul > li > div {
+nav#mainMenu > div#mainNav> ul > li > div {
     position: absolute;
     display: block;
     width: 95%;
@@ -103,13 +103,13 @@ nav > div> ul > li > div {
     transition: all .3s ease .15s;
 }
 
-nav > div > ul > li:hover > div {
+nav#mainMenu > div#mainNav > ul > li:hover > div {
     opacity: 1;
     visibility: visible;
     overflow: visible;
 }
 
-nav .navInfoColumn{
+nav#mainMenu .navInfoColumn{
     clear:both;
 	float: left;
     width: 25%;
@@ -118,7 +118,7 @@ nav .navInfoColumn{
     border-right:1px solid #cccccc;
 }
 
-nav .navInfoColumn h1 {
+nav#mainMenu .navInfoColumn h1 {
     
     line-height: 18px;
  
@@ -129,7 +129,7 @@ nav .navInfoColumn h1 {
 }
 
 
-nav .navInfoColumn li a {
+nav#mainMenu .navInfoColumn li a {
     display: block;
     line-height: 26px;
  
@@ -138,14 +138,14 @@ nav .navInfoColumn li a {
     color: $connectText;
 }
  
-nav .navInfoColumn li a:hover { color: $connectOrange; }
+nav#mainMenu .navInfoColumn li a:hover { color: $connectOrange; }
 
-nav .navLinksColumn{
+nav#mainMenu .navLinksColumn{
     vertical-align: top;
     width: 90%;
  
-    margin: 20px 0 10px 0;
-
+    //margin: 20px 0 10px 0;
+    display: block;
     
 }
 
@@ -218,4 +218,63 @@ header{
     width:100%;
     background-color:$connectHeaderGray;
 
+}
+
+
+
+
+
+
+
+//SIDE NAV 
+nav#sideMenu li { list-style: none; }
+nav#sideMenu{
+    width:20%;
+    display: inline-block;
+    background-color: white;
+    color: black;
+    
+    vertical-align: top;
+    padding:2.5%;
+   margin: 2.5%;
+   overflow: hidden;
+   height:100%;
+    border-right: 1px solid $connectHeaderGray;
+}
+nav#sideMenu > div > ul >li > a{
+    font-size:30px;
+    
+    color:$connectText;
+    pointer-events:none;
+    cursor: default;
+    padding-bottom: 5px;
+    border-bottom: 1px solid $connectHeaderGray;
+    margin-bottom: 20px;
+}
+
+nav#sideMenu > div > ul >li > ul >li{
+    margin-top:20px; 
+
+}
+
+nav#sideMenu > div > ul >li > ul >li >a{
+    pointer-events:none;
+    cursor: default;
+    text-transform: uppercase;
+    
+
+}
+nav#sideMenu > div > ul >li > ul >li >ul >li {
+    margin-left:20px;
+    list-style-type: none;
+
+}
+nav#sideMenu > div ul li a{
+    text-decoration: none;
+    font-weight: bold;
+
+}
+
+nav#sideMenu > div> ul >li > ul >li >ul >li.current-menu-item a{
+    color:$connectOrange;
 }

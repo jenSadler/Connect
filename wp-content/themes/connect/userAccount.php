@@ -2,6 +2,8 @@
 /*
 Template Name: My Account
 */
+
+
 $wpdb->hide_errors(); auth_redirect_login(); nocache_headers();
 global $userdata; get_currentuserinfo(); // grabs the user info and puts into vars
 // check to see if the form has been posted. If so, validate the fields
@@ -31,7 +33,9 @@ if(!empty($_POST['action'])){
 ?>
 
 <?php get_header(); ?>
+<div id="body">
 <div class="alignment">
+	<div class = "account">
 <?php while (have_posts()) : the_post();?>
 <div class="post">
         <h2 id="post-<?php the_ID(); ?>"><?php the_title();?></h2>
@@ -155,5 +159,7 @@ if(!empty($_POST['action'])){
 <?php } ?>
 
 </form>
+</div>
+</div>
 </div>
 <?php get_footer(); ?>

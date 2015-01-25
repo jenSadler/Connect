@@ -38,15 +38,14 @@ nav#mainMenu > div#mainNav > ul > li.current_page_ancestor.crisisNav > a {
   text-decoration: underline; }
 
 nav#mainMenu > div#mainNav > ul > li.active.crisisNav > a:hover {
-  color: white;
-  background: #ff9933; }
+  text-decoration: underline; }
 
 nav#mainMenu > div#mainNav > ul > li.current_page_ancestor.crisisNav > a:hover {
-  color: white;
-  background: #ff9933; }
+  text-decoration: underline; }
 
 nav#mainMenu > div#mainNav > ul > .crisisNav > a {
-  color: #ff9933; }
+  background-color: #ff9933;
+  color: white; }
 
 nav#mainMenu > div#mainNav > ul > .crisisNav > a:hover {
   color: white;
@@ -67,14 +66,14 @@ nav#mainMenu > div#mainNav > ul > li > a {
   transition: all .3s ease; }
 
 nav#mainMenu > div#mainNav > ul > li:hover > a {
-  color: white;
-  background: #ff9933; }
+  text-decoration: underline; }
 
 nav#mainMenu > div#mainNav > ul > li > div {
   position: absolute;
   display: block;
   width: 95%;
   left: 0;
+  min-height: 400px;
   opacity: 0;
   visibility: hidden;
   overflow: hidden;
@@ -93,12 +92,12 @@ nav#mainMenu > div#mainNav > ul > li:hover > div {
   overflow: visible; }
 
 nav#mainMenu .navInfoColumn {
-  clear: both;
+  height: 100%;
+  clear: left;
   float: left;
   width: 25%;
   padding-right: 2.5%;
-  margin-right: 2.5%;
-  border-right: 1px solid #cccccc; }
+  margin-right: 2.5%; }
 
 nav#mainMenu .navInfoColumn h1 {
   width: 100%;
@@ -122,12 +121,32 @@ nav#mainMenu .navInfoColumn li a:hover {
   color: #ff9933; }
 
 nav#mainMenu .navLinksColumn {
-  vertical-align: top;
-  width: 90%;
-  display: block; }
+  width: 50%;
+  float: right;
+  margin-right: 15%;
+  border-left: 1px solid #cccccc;
+  min-height: 375px;
+  padding-left: 4%; }
 
 nav#mainMenu .navLinksColumn p {
-  margin-top: 20px; }
+  margin-top: 20px;
+  margin-bottom: 25px; }
+
+nav#mainMenu .navLinksColumn > ul > li {
+  width: 50%;
+  padding: 10px;
+  background-color: #CC99CC;
+  border-radius: 10px;
+  margin: 10px 10px 10px 0px; }
+
+nav#mainMenu .navLinksColumn > ul > li:hover {
+  background-color: #993399; }
+
+nav#mainMenu .navLinksColumn > ul > li:hover > a {
+  color: #CC99CC; }
+
+nav#mainMenu .navLinksColumn > ul > li > a {
+  color: #993399; }
 
 #searchContainer {
   display: inline-block;
@@ -197,8 +216,13 @@ nav#sideMenu {
   height: 100%;
   border-right: 1px solid #F5F5F5; }
 
+nav#sideMenu > div > ul > li {
+  text-align: right;
+  width: 100%; }
+
 nav#sideMenu > div > ul > li > a {
   font-size: 30px;
+  width: 100%;
   color: #383838;
   pointer-events: none;
   cursor: default;
@@ -207,7 +231,8 @@ nav#sideMenu > div > ul > li > a {
   margin-bottom: 20px; }
 
 nav#sideMenu > div > ul > li > ul > li {
-  margin-top: 30px; }
+  margin-top: 30px;
+  text-align: right; }
 
 nav#sideMenu > div > ul > li > ul > li > a {
   pointer-events: none;
@@ -216,9 +241,9 @@ nav#sideMenu > div > ul > li > ul > li > a {
   color: #993399; }
 
 nav#sideMenu > div > ul > li > ul > li > ul > li {
-  margin-left: 20px;
   list-style-type: none;
-  margin-top: 10px; }
+  margin-top: 10px;
+  text-align: right; }
 
 nav#sideMenu > div ul li a {
   text-decoration: none;

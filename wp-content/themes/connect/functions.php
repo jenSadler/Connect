@@ -12,6 +12,56 @@ function infoBox_shortcode( $atts, $content = null ) {
 add_shortcode( 'info-box', 'infoBox_shortcode' );
 
 
+function slider_shortcode( $atts ){
+  $output="<div id='sliderBox'><ul>";
+  $args = array( 'numberposts' => '3','meta_key' => '_thumbnail_id' );
+  $recent_posts = wp_get_recent_posts( $args );
+  foreach( $recent_posts as $recent ){
+    $output.= '<li><a href="' . get_permalink($recent["ID"]) . '">' . get_the_post_thumbnail($recent['ID'], 'banner') .'</a> </li> ';
+  }
+  
+  $eventargs = array( 'numberposts'=>'3' );
+
+  $recent_events = tribe_get_events( $eventargs );
+  foreach( $recent_events as $recentevent ){
+    $output.= '<li><a href="' . get_permalink($recentevent->ID) . '">' . get_the_post_thumbnail($recentevent->ID, 'banner') .'</a> </li> ';
+  }
+
+  $output .= "</ul></div>";
+  return $output;
+}
+add_shortcode( 'slider', 'slider_shortcode' );
+
+
+function events_list_shortcode($atts){
+$output="<div id='newsBox' class='infoBox'><h1>".$atts['title']."</h1><ul>";
+$args = array( 'numberposts' => '5' );
+ $recent_events = tribe_get_events( $eventargs );
+  foreach( $recent_events as $recentevent ){
+    $output.= '<li><a href="' . get_permalink($recentevent->ID) . '">' . $recentevent->post_title .'</a> </li> ';
+  }
+$output .= "</ul></div>";
+return $output;
+}
+add_shortcode( 'events-list', 'events_list_shortcode' );
+
+function news_list_shortcode($atts){
+  $output="<div id='newsBox' class='infoBox'><h1>".$atts['title']."</h1><ul>";
+  $args = array( 'numberposts' => '5' );
+  $recent_posts = wp_get_recent_posts( $args );
+  foreach( $recent_posts as $recent ){
+    $output.= '<li><a href="' . get_permalink($recent["ID"]) . '">' .   $recent["post_title"].'</a> </li> ';
+  }
+
+  $output .= "</ul></div>";
+
+  return $output;
+
+}
+
+  add_shortcode( 'news-list', 'news_list_shortcode' );
+  add_image_size( "banner",720, 300, true );
+
 // Account Info Page
 function auth_redirect_login() {
 	$user = wp_get_current_user();
@@ -21,6 +71,8 @@ function auth_redirect_login() {
 		exit();
 	}
 }
+
+
 
 
 //Header--------------------------------------
@@ -72,7 +124,7 @@ function loginLink(){
 		}
 	}
 	else{
-		return '<div class="loginLinks"><a href="wp-login.php">Sign In</a> |'.  wp_register('', '',$echo) . '</div>';
+		return '<div class="loginLinks"><a href="'.get_site_url().'/wp-login.php">Sign In</a> |'.  wp_register('', '',$echo) . '</div>';
 ;
 	}
 }
@@ -90,7 +142,7 @@ function register_my_menus() {
 
 add_action( 'init', 'register_my_menus' );
 add_action('after_setup_theme', 'remove_admin_bar');
-
+add_theme_support( 'post-thumbnails' );
 
 class MegaMenu extends walker_nav_menu {
 
@@ -170,7 +222,7 @@ class MegaMenu extends walker_nav_menu {
 
   		if($item->title == "Actions"){
 			$item_output .= '<div class="navLinksColumn"><p>';
-			$item_output .=  apply_filters( 'the_description', $item->description, $item->ID ).'</p>';
+			$item_output .=  apply_filters( 'the_description', $item->description, $item->ID ).'<p>';
 			$item_output .= "<ul>";
 		}
 		else{

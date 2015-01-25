@@ -35,6 +35,13 @@ $footerHeight:200px;
 	overflow: hidden;
 }
 
+.alignment .alignment{ 
+	min-width:760px;
+	max-width: 1216px;
+	margin:0 auto;
+	overflow: hidden;
+}
+
 #container{
 	min-height: 100%;
 	position:relative;
@@ -130,3 +137,7 @@ footer li, footer p{
 
 
 
+//account
+div.account{
+	padding:2.5%;
+}

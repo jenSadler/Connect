@@ -1,10 +1,3 @@
-.crisisNav > a {
-  color: #ff9933; }
-
-.crisisNav > a:hover {
-  color: white;
-  background-color: #ff9933; }
-
 nav#mainMenu a {
   text-decoration: none;
   font-family: 'Raleway', Arial, sans-serif;
@@ -33,20 +26,16 @@ nav#mainMenu > div#mainNav > ul > li {
   float: left; }
 
 nav#mainMenu > div#mainNav > ul > li.active > a {
-  color: white;
-  background: #CC99CC; }
+  text-decoration: underline; }
 
 nav#mainMenu > div#mainNav > ul > li.current_page_ancestor > a {
-  color: white;
-  background: #CC99CC; }
+  text-decoration: underline; }
 
 nav#mainMenu > div#mainNav > ul > li.active.crisisNav > a {
-  color: white;
-  background: #CC99CC; }
+  text-decoration: underline; }
 
 nav#mainMenu > div#mainNav > ul > li.current_page_ancestor.crisisNav > a {
-  color: white;
-  background: #CC99CC; }
+  text-decoration: underline; }
 
 nav#mainMenu > div#mainNav > ul > li.active.crisisNav > a:hover {
   color: white;
@@ -55,6 +44,13 @@ nav#mainMenu > div#mainNav > ul > li.active.crisisNav > a:hover {
 nav#mainMenu > div#mainNav > ul > li.current_page_ancestor.crisisNav > a:hover {
   color: white;
   background: #ff9933; }
+
+nav#mainMenu > div#mainNav > ul > .crisisNav > a {
+  color: #ff9933; }
+
+nav#mainMenu > div#mainNav > ul > .crisisNav > a:hover {
+  color: white;
+  background-color: #ff9933; }
 
 nav#mainMenu > div#mainNav > ul > li > a {
   position: relative;
@@ -84,7 +80,7 @@ nav#mainMenu > div#mainNav > ul > li > div {
   overflow: hidden;
   background: #E6E6E6;
   border-radius: 0 0 3px 3px;
-  padding: 2.5%;
+  padding: 3% 2.5%;
   -webkit-transition: all .3s ease .15s;
   -moz-transition: all .3s ease .15s;
   -o-transition: all .3s ease .15s;
@@ -100,11 +96,13 @@ nav#mainMenu .navInfoColumn {
   clear: both;
   float: left;
   width: 25%;
-  padding: 0 0 0 0;
-  margin: 0 5% 0 0;
+  padding-right: 2.5%;
+  margin-right: 2.5%;
   border-right: 1px solid #cccccc; }
 
 nav#mainMenu .navInfoColumn h1 {
+  width: 100%;
+  text-align: right;
   line-height: 18px;
   font-weight: bold;
   font-size: 14px;
@@ -112,6 +110,8 @@ nav#mainMenu .navInfoColumn h1 {
   text-transform: uppercase; }
 
 nav#mainMenu .navInfoColumn li a {
+  width: 100%;
+  text-align: right;
   display: block;
   line-height: 26px;
   font-weight: bold;
@@ -125,6 +125,9 @@ nav#mainMenu .navLinksColumn {
   vertical-align: top;
   width: 90%;
   display: block; }
+
+nav#mainMenu .navLinksColumn p {
+  margin-top: 20px; }
 
 #searchContainer {
   display: inline-block;
@@ -183,13 +186,13 @@ nav#sideMenu li {
   list-style: none; }
 
 nav#sideMenu {
-  width: 20%;
   display: inline-block;
   background-color: white;
   color: black;
   vertical-align: top;
-  padding: 2.5%;
-  margin: 2.5%;
+  width: 20%;
+  padding: 2.5% 1% 2.5% 1%;
+  margin: 2.5% 1% 2.5% 1%;
   overflow: hidden;
   height: 100%;
   border-right: 1px solid #F5F5F5; }
@@ -204,22 +207,27 @@ nav#sideMenu > div > ul > li > a {
   margin-bottom: 20px; }
 
 nav#sideMenu > div > ul > li > ul > li {
-  margin-top: 20px; }
+  margin-top: 30px; }
 
 nav#sideMenu > div > ul > li > ul > li > a {
   pointer-events: none;
   cursor: default;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  color: #993399; }
 
 nav#sideMenu > div > ul > li > ul > li > ul > li {
   margin-left: 20px;
-  list-style-type: none; }
+  list-style-type: none;
+  margin-top: 10px; }
 
 nav#sideMenu > div ul li a {
   text-decoration: none;
   font-weight: bold; }
 
 nav#sideMenu > div > ul > li > ul > li > ul > li.current-menu-item a {
+  color: #ff9933; }
+
+nav#sideMenu > div > ul > li.current-menu-item > a {
   color: #ff9933; }
 
 /*# sourceMappingURL=navigation.css.map */

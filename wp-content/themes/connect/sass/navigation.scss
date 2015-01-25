@@ -4,16 +4,7 @@ $connectLightPurple:#CC99CC;
 $connectHeaderGray:#F5F5F5;
 $connectText:#383838;
 $navigationGrey:#E6E6E6;
-.crisisNav > a{
 
-    color:$connectOrange;
-}
-
-.crisisNav > a:hover{
-
-    color:white;
-    background-color: $connectOrange;
-}
 
 
 
@@ -50,18 +41,32 @@ nav#mainMenu > div#mainNav> ul > li{
     
 }
 
-nav#mainMenu > div#mainNav> ul > li.active > a{color:white; background: $connectLightPurple; }
+// nav#mainMenu > div#mainNav> ul > li.active > a{color:white; background: $connectLightPurple; }
+ nav#mainMenu > div#mainNav> ul > li.active > a{ text-decoration: underline; }
 
-nav#mainMenu > div#mainNav> ul > li.current_page_ancestor > a{ color:white; background: $connectLightPurple; }
+// nav#mainMenu > div#mainNav> ul > li.current_page_ancestor > a{ color:white; background: $connectLightPurple; }
+nav#mainMenu > div#mainNav> ul > li.current_page_ancestor > a{text-decoration: underline;}
 
-nav#mainMenu > div#mainNav> ul > li.active.crisisNav > a{color:white; background:  $connectLightPurple; }
+// nav#mainMenu > div#mainNav> ul > li.active.crisisNav > a{color:white; background:  $connectLightPurple; }
+nav#mainMenu > div#mainNav> ul > li.active.crisisNav > a{text-decoration: underline;}
 
-nav#mainMenu > div#mainNav> ul > li.current_page_ancestor.crisisNav > a{ color:white; background: $connectLightPurple; }
+// nav#mainMenu > div#mainNav> ul > li.current_page_ancestor.crisisNav > a{ color:white; background: $connectLightPurple; }
+nav#mainMenu > div#mainNav> ul > li.current_page_ancestor.crisisNav > a{ text-decoration: underline; }
 
 nav#mainMenu > div#mainNav> ul > li.active.crisisNav > a:hover{color:white; background:  $connectOrange; }
 
 nav#mainMenu > div#mainNav> ul > li.current_page_ancestor.crisisNav > a:hover{ color:white; background: $connectOrange; }
 
+nav#mainMenu > div#mainNav> ul >.crisisNav > a{
+
+    color:$connectOrange;
+}
+
+nav#mainMenu > div#mainNav> ul >.crisisNav > a:hover{
+
+    color:white;
+    background-color: $connectOrange;
+}
 
 nav#mainMenu > div#mainNav> ul > li > a {
     position: relative;
@@ -95,7 +100,7 @@ nav#mainMenu > div#mainNav> ul > li > div {
     background: $navigationGrey;
     border-radius: 0 0 3px 3px;
  
-    padding:2.5%;
+    padding:3% 2.5%;
     -webkit-transition: all .3s ease .15s;
     -moz-transition: all .3s ease .15s;
     -o-transition: all .3s ease .15s;
@@ -113,13 +118,14 @@ nav#mainMenu .navInfoColumn{
     clear:both;
 	float: left;
     width: 25%;
-    padding: 0 0 0 0;
-    margin: 0 5% 0 0 ;
+    padding-right:2.5%;
+    margin-right:2.5%;
     border-right:1px solid #cccccc;
 }
 
 nav#mainMenu .navInfoColumn h1 {
-    
+    width:100%;
+    text-align: right;
     line-height: 18px;
  
     font-weight: bold;
@@ -129,7 +135,10 @@ nav#mainMenu .navInfoColumn h1 {
 }
 
 
+
 nav#mainMenu .navInfoColumn li a {
+    width:100%;
+    text-align: right;
     display: block;
     line-height: 26px;
  
@@ -147,6 +156,10 @@ nav#mainMenu .navLinksColumn{
     //margin: 20px 0 10px 0;
     display: block;
     
+}
+nav#mainMenu .navLinksColumn p {
+    margin-top:20px; 
+
 }
 
 #searchContainer{
@@ -229,14 +242,14 @@ header{
 //SIDE NAV 
 nav#sideMenu li { list-style: none; }
 nav#sideMenu{
-    width:20%;
     display: inline-block;
     background-color: white;
     color: black;
     
     vertical-align: top;
-    padding:2.5%;
-   margin: 2.5%;
+    width:20%;
+    padding:2.5% 1% 2.5% 1%;
+   margin: 2.5% 1% 2.5% 1%;
    overflow: hidden;
    height:100%;
     border-right: 1px solid $connectHeaderGray;
@@ -253,7 +266,8 @@ nav#sideMenu > div > ul >li > a{
 }
 
 nav#sideMenu > div > ul >li > ul >li{
-    margin-top:20px; 
+    margin-top:30px; 
+
 
 }
 
@@ -261,12 +275,14 @@ nav#sideMenu > div > ul >li > ul >li >a{
     pointer-events:none;
     cursor: default;
     text-transform: uppercase;
+    color:$connectPurple; 
     
 
 }
 nav#sideMenu > div > ul >li > ul >li >ul >li {
     margin-left:20px;
     list-style-type: none;
+    margin-top:10px;
 
 }
 nav#sideMenu > div ul li a{
@@ -275,6 +291,11 @@ nav#sideMenu > div ul li a{
 
 }
 
-nav#sideMenu > div> ul >li > ul >li >ul >li.current-menu-item a{
+nav#sideMenu > div> ul >li > ul >li >ul >li.current-menu-item  a{
     color:$connectOrange;
 }
+
+nav#sideMenu > div> ul > li.current-menu-item > a{
+    color:$connectOrange;
+}
+

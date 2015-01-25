@@ -169,8 +169,8 @@ class MegaMenu extends walker_nav_menu {
   		$item_output = $args->before;
 
   		if($item->title == "Actions"){
-			$item_output .= '<div class="navLinksColumn">';
-			$item_output .=  apply_filters( 'the_description', $item->description, $item->ID );
+			$item_output .= '<div class="navLinksColumn"><p>';
+			$item_output .=  apply_filters( 'the_description', $item->description, $item->ID ).'</p>';
 			$item_output .= "<ul>";
 		}
 		else{

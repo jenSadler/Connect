@@ -46,6 +46,21 @@ $footerHeight:200px;
 	padding-bottom:$footerHeight;
 }
 
+#body section ul,#body section ol {
+
+	padding-left: 50px;
+}
+
+#body section ul > li,#body section ol > li{
+
+	padding-top: 15px;
+}
+
+#body section ul > li >ul >li,#body section ol > li >ul >li,#body section ol > li >ul >li, #body section ol > li >ol >li{
+
+	padding-top: 5px;
+}
+
 html,body{
 	height:100%;
 
@@ -71,13 +86,14 @@ p{
 	margin:0px 0px 10px 0px;
 }
 
-section{
+#body section{
 	
 	display: inline-block;
 	width:60%;
 	vertical-align: top;
 	padding:2.5%;
 	overflow: hidden;
+	min-height: 500px;
 
 }
 

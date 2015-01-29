@@ -13,7 +13,7 @@ add_shortcode( 'info-box', 'infoBox_shortcode' );
 
 
 function slider_shortcode( $atts ){
-  $output="<div id='sliderBox'><ul>";
+  $output="<div id='slider'><ul>";
   $args = array( 'numberposts' => '3','meta_key' => '_thumbnail_id' );
   $recent_posts = wp_get_recent_posts( $args );
   foreach( $recent_posts as $recent ){
@@ -351,5 +351,45 @@ class SideMenu extends walker_nav_menu {
     }
 
 
+}
+
+add_filter( 'wp_nav_menu_objects', 'submenu_limit', 10, 2 );
+
+function submenu_limit( $items, $args ) {
+    if ( empty( $args->submenu )&& empty($args->highlight) ) {
+        return $items;
+    }
+
+    //filter the object list by the title of the entry 
+    $ids       = wp_filter_object_list( $items, array( 'title' => $args->submenu ), 'and', 'ID' );
+    $parent_id = array_pop( $ids );
+    $children  = submenu_get_children_ids( $parent_id, $items );
+
+    foreach ( $items as $key => $item ) {
+
+        if ( ! in_array( $item->ID, $children) && $item->title !=$args->submenu) {
+            unset( $items[$key] );
+        }
+        else if($item ->title == $args->highlight){
+
+            array_push($item->classes,"current-menu-item"); 
+        }
+        
+        
+    }
+
+    return $items;
+}
+
+function submenu_get_children_ids( $id, $items ) {
+
+    $ids = wp_filter_object_list( $items, array( 'menu_item_parent' => $id ), 'and', 'ID' );
+
+    foreach ( $ids as $id ) {
+
+        $ids = array_merge( $ids, submenu_get_children_ids( $id, $items ) );
+    }
+
+    return $ids;
 }
 ?>

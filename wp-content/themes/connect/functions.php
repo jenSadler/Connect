@@ -331,26 +331,52 @@ class SideMenu extends walker_nav_menu {
         foreach ( $top_level_elements as $e ){  //changed by continent7
             // descend only on current tree
             $descend_test = array_intersect( $current_element_markers, $e->classes );
-            if ( !empty( $descend_test ) ) 
-                $this->display_element( $e, $children_elements, 3, 0, $args, $output );
+            if ( !empty( $descend_test ) ) {
+
+
+                $this->display_element( $e, $children_elements, 4, 0, $args, $output );
+              }
         }
 
-        /*
-         * if we are displaying all levels, and remaining children_elements is not empty,
-         * then we got orphans, which should be displayed regardless
-         */
-         /* removed by continent7
-        if ( ( $max_depth == 0 ) && count( $children_elements ) > 0 ) {
-            $empty_array = array();
-            foreach ( $children_elements as $orphans )
-                foreach( $orphans as $op )
-                    $this->display_element( $op, $empty_array, 1, 0, $args, $output );
-         }
-        */
+        
          return $output;
     }
 
+  function start_el( &$output, $item, $depth = 0, $args, $id = 0 ) {
 
+        $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+
+        $class_names = $value = '';
+
+        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+        $classes[] = 'menu-item-' . $item->ID;
+
+        $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+        $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+
+        $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
+        $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
+
+        $item_output = $args->before;
+
+        $output .= $indent . '<li' . $id . $value . $class_names .'>';
+
+        $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+        $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+        $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+        $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+
+
+            $item_output .= '<a'. $attributes .'>';
+            $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+            $item_output .= '</a>';
+
+        
+        $item_output .= $args->after;
+
+        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );     
+
+    }
 }
 
 add_filter( 'wp_nav_menu_objects', 'submenu_limit', 10, 2 );

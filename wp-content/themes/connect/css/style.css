@@ -35,10 +35,12 @@ Tags: Tags to locate your theme in the WordPress theme repository
   padding-left: 50px; }
 
 #body section ul > li, #body section ol > li {
-  padding-top: 15px; }
+  padding-top: 15px;
+  font-size: 15px; }
 
 #body section ul > li > ul > li, #body section ol > li > ul > li, #body section ol > li > ul > li, #body section ol > li > ol > li {
-  padding-top: 5px; }
+  padding-top: 5px;
+  font-size: 15px; }
 
 html, body {
   height: 100%; }
@@ -56,6 +58,7 @@ h2 {
   margin: 20px 0px 10px 0px; }
 
 p {
+  padding-top: 15px;
   font-family: "Raleway", Arial, sans-serif;
   font-size: 15px;
   margin: 0px 0px 10px 0px; }

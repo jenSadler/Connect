@@ -61,11 +61,13 @@ $footerHeight:200px;
 #body section ul > li,#body section ol > li{
 
 	padding-top: 15px;
+	font-size:15px;
 }
 
 #body section ul > li >ul >li,#body section ol > li >ul >li,#body section ol > li >ul >li, #body section ol > li >ol >li{
 
 	padding-top: 5px;
+	font-size:15px;
 }
 
 html,body{
@@ -88,6 +90,7 @@ h2{
 }
 
 p{
+	padding-top:15px;
     font-family: $connectParagraphFont;
 	font-size: 15px;
 	margin:0px 0px 10px 0px;

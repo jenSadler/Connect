@@ -2,10 +2,11 @@
 <div id="body">
 <div class="alignment">
 
-	<nav id="sideMenu">
-		<?php wp_nav_menu(array('menu'=>'side-menu','container_id' => 'sideNav','walker'=> new SideMenu()) ); ?>
+<nav id="sideMenu">
+        <?php wp_nav_menu(array('menu'=>'side-menu','container_id' => 'sideNav','walker'=> new SideMenu()) ); ?>
 
-	</nav>
+    </nav>
+
 	<section>
 <?php if (have_posts()) : while (have_posts()) : the_post();?>
     <div class="post">
@@ -16,6 +17,9 @@
     </div>
     <?php endwhile; endif; ?>
 </section>
+
+
+
 </div>
 </div>
 <?php get_footer(); ?>

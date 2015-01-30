@@ -88,18 +88,37 @@ h2{
 	font-weight: bold;
 	margin:20px 0px 10px 0px;
 }
+h3{
+    font-family: $connectHeaderFont;
+	font-size: 18px;
+	font-weight: bold;
+	margin:30px 0px 10px 0px;
+}
+
 
 p{
-	padding-top:15px;
+	padding-top:5px;
     font-family: $connectParagraphFont;
 	font-size: 15px;
 	margin:0px 0px 10px 0px;
 }
 
+#body section a{
+ 
+	text-decoration: none;
+	color:$connectOrange;
+
+}
+
+#body section a:hover{
+
+	color:$connectPurple;
+}
+
 #body section{
 	
 	display: inline-block;
-	width:60%;
+	width:74%;
 	vertical-align: top;
 	padding:2.5%;
 	overflow: hidden;

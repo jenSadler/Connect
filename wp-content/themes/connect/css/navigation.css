@@ -1,7 +1,6 @@
 nav#mainMenu a {
   text-decoration: none;
   font-family: 'Raleway', Arial, sans-serif;
-  font-weight: bold;
   font-size: 16px;
   color: #fcfcfc; }
 
@@ -103,7 +102,6 @@ nav#mainMenu .navInfoColumn h1 {
   width: 100%;
   text-align: right;
   line-height: 18px;
-  font-weight: bold;
   font-size: 14px;
   color: #993399;
   text-transform: uppercase; }
@@ -113,7 +111,6 @@ nav#mainMenu .navInfoColumn li a {
   text-align: right;
   display: block;
   line-height: 26px;
-  font-weight: bold;
   font-size: 13px;
   color: #383838; }
 
@@ -130,7 +127,7 @@ nav#mainMenu .navLinksColumn {
 
 nav#mainMenu .navLinksColumn p {
   margin-top: 20px;
-  margin-bottom: 25px; }
+  margin-bottom: 5px; }
 
 nav#mainMenu .navLinksColumn > ul > li {
   width: 50%;
@@ -209,12 +206,12 @@ nav#sideMenu {
   background-color: white;
   color: black;
   vertical-align: top;
-  width: 17%;
+  width: 16%;
   padding: 2.5% 1% 2.5% 1%;
   margin: 2.5% 1% 2.5% 1%;
   overflow: hidden;
   height: 100%;
-  border-right: 1px solid #F5F5F5; }
+  border-left: 1px solid #F5F5F5; }
 
 nav#sideMenu > div > ul > li {
   text-align: left;
@@ -224,8 +221,6 @@ nav#sideMenu > div > ul > li > a {
   font-size: 30px;
   width: 100%;
   color: #383838;
-  pointer-events: none;
-  cursor: default;
   padding-bottom: 5px;
   border-bottom: 1px solid #F5F5F5;
   margin-bottom: 20px; }
@@ -243,8 +238,7 @@ nav#sideMenu > div > ul > li > ul > li > a {
 nav#sideMenu > div > ul > li > ul > li > ul > li {
   list-style-type: none;
   margin-top: 10px;
-  text-align: left;
-  margin-left: 30px; }
+  text-align: left; }
 
 nav#sideMenu > div > ul > li > ul > li > ul > li > ul > li {
   margin-top: 5px;
@@ -254,8 +248,7 @@ nav#sideMenu > div > ul > li > ul > li > ul > li > ul > li {
   list-style-type: circle; }
 
 nav#sideMenu > div ul li a {
-  text-decoration: none;
-  font-weight: bold; }
+  text-decoration: none; }
 
 nav#sideMenu > div > ul > li > ul > li > ul > li.current-menu-item > a {
   color: #ff9933; }
@@ -267,6 +260,9 @@ nav#sideMenu > div > ul > li.current-menu-item > a {
   color: #ff9933; }
 
 nav#sideMenu > div > ul > li > ul > li > ul > li a:hover {
+  color: #ff9933; }
+
+nav#sideMenu > div > ul > li > a:hover {
   color: #ff9933; }
 
 /*# sourceMappingURL=navigation.css.map */

@@ -1,4 +1,5 @@
 function slideSwitch(){
+	console.log("inside slider");	
 	//get top image
 	var $active = $('#slider div.active');
 	

@@ -5,7 +5,8 @@ module.exports = function(grunt) {
 			dist: {
 				files: {
 					'wp-content/themes/connect/css/style.css' : 'wp-content/themes/connect/sass/style.scss',
-					'wp-content/themes/connect/css/navigation.css' : 'wp-content/themes/connect/sass/navigation.scss'
+					'wp-content/themes/connect/css/navigation.css' : 'wp-content/themes/connect/sass/navigation.scss',
+					'wp-content/themes/connect/css/slider.css' : 'wp-content/themes/connect/sass/slider.scss'
 				}
 			}
 		},

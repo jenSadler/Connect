@@ -13,21 +13,72 @@ add_shortcode( 'info-box', 'infoBox_shortcode' );
 
 
 function slider_shortcode( $atts ){
-  $output="<div id='slider'><ul>";
+  $output="<div id='slider'>";
   $args = array( 'numberposts' => '3','meta_key' => '_thumbnail_id' );
   $recent_posts = wp_get_recent_posts( $args );
+
+  $eventargs = array( 'numberposts'=>'3' );
+  $recent_events = tribe_get_events( $eventargs );
+  $countPosts = 0;
   foreach( $recent_posts as $recent ){
-    $output.= '<li><a href="' . get_permalink($recent["ID"]) . '">' . get_the_post_thumbnail($recent['ID'], 'banner') .'</a> </li> ';
+    $post = get_post($recent["ID"]);
+    if($countPosts ==0){
+      $output.= '<div class="active"><div class="imageBox"><a href="' . get_permalink($recent["ID"]). '">' . get_the_post_thumbnail($recent['ID'], 'banner') .'</a>';
+    }
+    else{
+
+       $output.= '<div><a href="' . get_permalink($recent["ID"]) . '">' . get_the_post_thumbnail($recent['ID'], 'banner') .'</a>';
+
+    }
+
+    $output.='<div class="holdDots">';
+
+    for($i=0;$i<count($recent_posts)+count($recent_events);$i++){
+      if($i==$countPosts){
+          $output .= '<div class="activeDot"></div>';
+
+      }
+      else{
+        $output .='<div class = "dot"></div>';
+      }
+    }
+    $output .='</div>';
+    $output.= '</div> ';
+
+    $output.= '<div class = "description">';
+    $output.= '<h1 class="slider">'.$post->post_title.'</h1>';
+    $output.= '<p class="slider">'.$post->post_excerpt.'</p>';
+    $output.= '</div></div>';
+    $countPosts++;
   }
   
-  $eventargs = array( 'numberposts'=>'3' );
+  $countEvents=0;
 
-  $recent_events = tribe_get_events( $eventargs );
   foreach( $recent_events as $recentevent ){
-    $output.= '<li><a href="' . get_permalink($recentevent->ID) . '">' . get_the_post_thumbnail($recentevent->ID, 'banner') .'</a> </li> ';
+    $output.= '<div><div class="imageBox"><a href="' . get_permalink($recentevent->ID) . '">' . get_the_post_thumbnail($recentevent->ID, 'banner') .'</a> ';
+
+    $output.='<div class="holdDots">';
+    for($j=0;$j<count($recent_posts)+count($recent_events);$j++){
+        if($j==$countEvents +count($recent_posts)){
+            $output .= '<div class="activeDot"></div>';
+
+        }
+        else{
+          $output .='<div class = "dot"></div>';
+        }
+    }
+    $output .="</div>";
+    $output.= '</div> ';
+    
+    $output.= '<div class = "description">';
+    $output.= '<h1 class="slider">'.$recentevent->post_title.'</h1>';
+    $output.= '<p class="slider">'.$recentevent->post_excerpt.'</p>';
+    $output.= '</div></div>';
+    $countEvents++;
   }
 
-  $output .= "</ul></div>";
+  $output .= "</div>";
+
   return $output;
 }
 add_shortcode( 'slider', 'slider_shortcode' );

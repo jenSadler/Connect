@@ -9,9 +9,15 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" ></script>
+	<script src = "<?php bloginfo('template_directory'); ?>/js/slider.js" type = "text/javascript"></script>
+	<script src = "<?php bloginfo('template_directory'); ?>/js/main.js" type = "text/javascript"></script>
+
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" />
 	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/navigation.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/slider.css" type="text/css" media="screen" />
 	<link rel="icon" type="image/png" href="<?php bloginfo('template_directory'); ?>/images/favicon.ico"/>
 	<!--[if lt IE 9]>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>

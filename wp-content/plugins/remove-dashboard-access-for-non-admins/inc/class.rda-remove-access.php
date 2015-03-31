@@ -30,6 +30,7 @@ class RDA_Remove_Access {
 	 * RDA Remove Access Init
 	 *
 	 * @since 1.0
+	 * @since 1.1.3 Moved `is_user_allowed()` to the {@see 'init'} hook.
 	 *
 	 * @param string $capability Capability passed from RDA_Options instance.
 	 * @param array $settings Settings array passed from RDA_Options instance.
@@ -43,7 +44,7 @@ class RDA_Remove_Access {
 
 		$this->settings = $settings;
 
-		add_action( 'plugins_loaded', array( $this, 'is_user_allowed' ) );
+		add_action( 'init', array( $this, 'is_user_allowed' ) );
 	}
 
 	/**

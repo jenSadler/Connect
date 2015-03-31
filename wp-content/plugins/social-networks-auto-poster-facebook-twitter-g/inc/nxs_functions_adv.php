@@ -1,28 +1,47 @@
 <?php
 if (!function_exists("nxs_settings_save")) {function nxs_settings_save($options) { update_option('NS_SNAutoPoster',$options); }}
 //## Format Message
-if (!function_exists("nsFormatMessage")) { function nsFormatMessage($msg, $postID, $addURLParams='', $lng=''){ global $ShownAds, $plgn_NS_SNAutoPoster, $nxs_urlLen; $post = get_post($postID); $options = $plgn_NS_SNAutoPoster->nxs_options; 
-  if (!empty($options['nxsHTSpace'])) $htS = $options['nxsHTSpace']; else $htS = '';
+if (!function_exists("nsFormatMessage")) { function nsFormatMessage($msg, $postID, $addURLParams='', $lng=''){ global $ShownAds, $plgn_NS_SNAutoPoster, $nxs_urlLen; 
+  $post = get_post($postID); $options = $plgn_NS_SNAutoPoster->nxs_options;   
+  if (!empty($options['brokenCntFilters'])) { $msg = str_replace('%FULLTITLE%','%TITLE%',$msg); $msg = str_replace('%PANNOUNCE%','%ANNOUNCE%',$msg); $msg = str_replace('%PANNOUNCER%','%ANNOUNCER%',$msg); 
+    $msg = str_replace('%EXCERPT%','%RAWEXCERPT%',$msg);  $msg = str_replace('%FULLTEXT%','%RAWTEXT%',$msg);  
+  } if (!empty($options['nxsHTSpace'])) $htS = $options['nxsHTSpace']; else $htS = '';
   // if ($addURLParams=='' && $options['addURLParams']!='') $addURLParams = $options['addURLParams'];
   $msg = str_replace('%TEXT%','%EXCERPT%',$msg); $msg = str_replace('%RAWEXTEXT%','%RAWEXCERPT%',$msg);
   $msg = stripcslashes($msg); if (isset($ShownAds)) $ShownAdsL = $ShownAds; // $msg = htmlspecialchars(stripcslashes($msg)); 
   $msg = nxs_doSpin($msg);
   if (preg_match('/%URL%/', $msg)) { $url = get_permalink($postID); if($addURLParams!='') $url .= (strpos($url,'?')!==false?'&':'?').$addURLParams;  $nxs_urlLen = nxs_strLen($url); $msg = str_ireplace("%URL%", $url, $msg);}
-  if (preg_match('/%MYURL%/', $msg)) { $url =  get_post_meta($postID, 'snap_MYURL', true); if($addURLParams!='') $url .= (strpos($url,'?')!==false?'&':'?').$addURLParams;  $nxs_urlLen = nxs_strLen($url); $msg = str_ireplace("%MYURL%", $url, $msg);}
+  if (preg_match('/%MYURL%/', $msg)) { $url =  get_post_meta($postID, 'snap_MYURL', true); if($addURLParams!='') $url .= (strpos($url,'?')!==false?'&':'?').$addURLParams;  $nxs_urlLen = nxs_strLen($url); $msg = str_ireplace("%MYURL%", $url, $msg);}// prr($msg);
   if (preg_match('/%SURL%/', $msg)) { $url = get_permalink($postID); if($addURLParams!='') $url .= (strpos($url,'?')!==false?'&':'?').$addURLParams; 
     $url = nxs_mkShortURL($url, $postID); $nxs_urlLen = nxs_strLen($url); $msg = str_ireplace("%SURL%", $url, $msg);
-  }
+  } 
   if (preg_match('/%ORID%/', $msg)) { $msg = str_ireplace("%ORID%", $postID, $msg); } 
   if (preg_match('/%IMG%/', $msg)) { $imgURL = nxs_getPostImage($postID); $msg = str_ireplace("%IMG%", $imgURL, $msg); } 
-  if (preg_match('/%TITLE%/', $msg)) { $title = nxs_doQTrans($post->post_title, $lng);  $msg = str_ireplace("%TITLE%", $title, $msg); }                    
+  if (preg_match('/%TITLE%/', $msg)) { $title = nxs_doQTrans($post->post_title, $lng); $msg = str_ireplace("%TITLE%", $title, $msg); }                    
   if (preg_match('/%FULLTITLE%/', $msg)) { $title = apply_filters('the_title', nxs_doQTrans($post->post_title, $lng));  $msg = str_ireplace("%FULLTITLE%", $title, $msg); }                    
   if (preg_match('/%STITLE%/', $msg)) { $title = nxs_doQTrans($post->post_title, $lng);   $title = substr($title, 0, 115); $msg = str_ireplace("%STITLE%", $title, $msg); }                    
   if (preg_match('/%AUTHORNAME%/', $msg)) { $aun = $post->post_author;  $aun = get_the_author_meta('display_name', $aun );  $msg = str_ireplace("%AUTHORNAME%", $aun, $msg);}                    
+  if (preg_match('/%AUTHORTWNAME%/', $msg)) { $aun = $post->post_author;  $aun = get_the_author_meta('twitter', $aun );  $msg = str_ireplace("%AUTHORTWNAME%", $aun, $msg);}                    
   if (preg_match('/%ANNOUNCE%/', $msg)) { $postContent = nxs_doQTrans($post->post_content, $lng);     
     $postContent = strip_tags(strip_shortcodes(str_ireplace('<!--more-->', '#####!--more--!#####', str_ireplace("&lt;!--more--&gt;", '<!--more-->', $postContent))));
     if (stripos($postContent, '#####!--more--!#####')!==false) { $postContentEx = explode('#####!--more--!#####',$postContent); $postContent = $postContentEx[0]; }    
-      else $postContent = nsTrnc($postContent, $options['anounTagLimit']);  $msg = str_ireplace("%ANNOUNCE%", $postContent, $msg);
+      else $postContent = nsTrnc($postContent, $options['anounTagLimit'], ' ', '');  $msg = str_ireplace("%ANNOUNCE%", $postContent, $msg);
   }  
+  if (preg_match('/%PANNOUNCE%/', $msg)) { $postContent = apply_filters('the_content', nxs_doQTrans($post->post_content, $lng));
+    $postContent = strip_tags(strip_shortcodes(str_ireplace('<!--more-->', '#####!--more--!#####', str_ireplace("&lt;!--more--&gt;", '<!--more-->', $postContent))));
+    if (stripos($postContent, '#####!--more--!#####')!==false) { $postContentEx = explode('#####!--more--!#####',$postContent); $postContent = $postContentEx[0]; }    
+      else $postContent = nsTrnc($postContent, $options['anounTagLimit'], ' ', '');  $msg = str_ireplace("%PANNOUNCE%", $postContent, $msg);
+  } 
+  if (preg_match('/%ANNOUNCER%/', $msg)) { $postContent = nxs_doQTrans($post->post_content, $lng);     
+    $postContent = strip_tags(strip_shortcodes(str_ireplace('<!--more-->', '#####!--more--!#####', str_ireplace("&lt;!--more--&gt;", '<!--more-->', $postContent))));
+    if (stripos($postContent, '#####!--more--!#####')!==false) { $postContentEx = explode('#####!--more--!#####',$postContent); $postContent = $postContentEx[1]; }    
+      else $postContent = str_replace(nsTrnc($postContent, $options['anounTagLimit'], ' ', ''), '', $postContent);  $msg = str_ireplace("%ANNOUNCER%", $postContent, $msg);
+  }  
+  if (preg_match('/%PANNOUNCER%/', $msg)) { $postContent = apply_filters('the_content', nxs_doQTrans($post->post_content, $lng));
+    $postContent = strip_tags(strip_shortcodes(str_ireplace('<!--more-->', '#####!--more--!#####', str_ireplace("&lt;!--more--&gt;", '<!--more-->', $postContent))));
+    if (stripos($postContent, '#####!--more--!#####')!==false) { $postContentEx = explode('#####!--more--!#####',$postContent); $postContent = $postContentEx[1]; }    
+      else $postContent = str_replace(nsTrnc($postContent, $options['anounTagLimit'], ' ', ''), '', $postContent);  $msg = str_ireplace("%PANNOUNCER%", $postContent, $msg);
+  } 
   if (preg_match('/%EXCERPT%/', $msg)) {      
     if ($post->post_excerpt!="") $excerpt = strip_tags(strip_shortcodes(apply_filters('the_content', nxs_doQTrans($post->post_excerpt, $lng)))); 
       else $excerpt= nsTrnc(strip_tags(strip_shortcodes(apply_filters('the_content', nxs_doQTrans($post->post_content, $lng)))), 300, " ", "..."); 
@@ -59,7 +78,9 @@ if (!function_exists("nsFormatMessage")) { function nsFormatMessage($msg, $postI
     foreach ($msgA as $mms) { 
       if (substr($mms, 0, 1)=='-' && stripos($mms, '%')!==false){ $h = strpos($mm[0][$i],'%HCT-')!==false; $i++; $mGr=CutFromTo($mms,'-','%'); $cfItem=wp_get_post_terms($postID,$mGr,array("fields"=>"names"));
         if (is_nxs_error($cfItem)) {nxs_addToLogN('E', 'Error', 'MSG', '-=ERROR=- '.$mGr.'|'.print_r($cfItem, true), '');  $mms=str_ireplace("-".$mGr."%",'',$mms);   } else { $tggs = array(); 
-          foreach ($cfItem as $frmTag) {$tggs[] = ($h?'#':'').$frmTag; } $cfItem = implode(' ',$tggs); $mms=str_ireplace("-".$mGr."%",$cfItem,$mms);    
+          foreach ($cfItem as $frmTag) { if ($h) $frmTag = trim(str_replace(' ', $htS, preg_replace('/[^a-zA-Z0-9\p{L}\p{N}\s]/u', '', trim(nxs_ucwords(str_ireplace('&','',str_ireplace('&amp;','',$frmTag)))))));
+              $tggs[] = ($h?'#':'').$frmTag; 
+          } $cfItem = implode(' ',$tggs); $mms=str_ireplace("-".$mGr."%",$cfItem,$mms);    
         }
       } $mout.=$mms;  
     } $msg = $mout; 
@@ -80,10 +101,12 @@ if (!function_exists("nxs_ucwords")){ function nxs_ucwords($str) { if (function_
 
 if (!function_exists("nxs_getURL")){ function nxs_getURL($options, $postID, $addURLParams='') { global $plgn_NS_SNAutoPoster; $gOptions = $plgn_NS_SNAutoPoster->nxs_options; 
   if (!isset($options['urlToUse']) || trim($options['urlToUse'])=='') $myurl =  trim(get_post_meta($postID, 'snap_MYURL', true));
-  $ssl = (!empty($gOptions['ht']) && $gOptions['ht'] == ord('h')); if ($myurl!='') $options['urlToUse'] = $myurl;
-  if ((isset($options['urlToUse']) && trim($options['urlToUse'])!='') || $ssl) { $options['useFBGURLInfo'] = true; } else $options['urlToUse'] = get_permalink($postID);      
+  $ssl = (!empty($gOptions['ht']) && $gOptions['ht'] == ord('h')); if (!empty($myurl)) $options['urlToUse'] = $myurl;
+  if ((isset($options['urlToUse']) && trim($options['urlToUse'])!='') || $ssl) { $options['atchUse'] = 'F'; } else $options['urlToUse'] = get_permalink($postID);      
   $options['urlToUse'] = $ssl?$gOptions['useSSLCert']:$options['urlToUse']; // $addURLParams = trim($gOptions['addURLParams']);  
-  if($addURLParams!='') $options['urlToUse'] .= (strpos($options['urlToUse'],'?')!==false?'&':'?').$addURLParams; return $options;
+  if($addURLParams!='') $options['urlToUse'] .= (strpos($options['urlToUse'],'?')!==false?'&':'?').$addURLParams;  $forceSURL = trim(get_post_meta($postID, '_snap_forceSURL', true));
+  if (empty($forceSURL)) $forceSURL = !empty($options['forceSURL']); else $forceSURL = $forceSURL =='1'; if (!empty($options['suUName'])) $forceSURL = false; //## SU does not allow Shorteners
+  if ($forceSURL) $options['urlToUse'] = nxs_mkShortURL($options['urlToUse'], $postID); return $options;
 }}
 
 if (!function_exists('nxs_showListRow')){function nxs_showListRow($ntParams) { $ntInfo = $ntParams['ntInfo']; $nxs_plurl = $ntParams['nxs_plurl']; $ntOpts = $ntParams['ntOpts'];  ?>
@@ -101,7 +124,7 @@ if (!function_exists('nxs_showListRow')){function nxs_showListRow($ntParams) { $
               <?php if ((int)$pbo['do'.$ntInfo['code']] == 1 && ((isset($pbo['catSel']) && (int)$pbo['catSel'] == 1)||(!empty($pbo['tagsSel'])))) { ?> <input type="radio" id="rbtn<?php echo $ntInfo['lcode'].$indx; ?>" value="1" name="<?php echo $ntInfo['lcode']; ?>[<?php echo $indx; ?>][apDo<?php echo $ntInfo['code']; ?>]" checked="checked" onmouseout="nxs_hidePopUpInfo('popOnlyCat');" onmouseover="nxs_showPopUpInfo('popOnlyCat', event);" /> <?php } else { ?>
                 <input value="0" name="<?php echo $ntInfo['lcode']; ?>[<?php echo $indx; ?>][apDo<?php echo $ntInfo['code']; ?>]" type="hidden" />             
                 <input value="1" name="<?php echo $ntInfo['lcode']; ?>[<?php echo $indx; ?>][apDo<?php echo $ntInfo['code']; ?>]" type="checkbox" <?php if ((int)$pbo['do'.$ntInfo['code']] == 1 && $pbo['catSel']!='1') echo "checked"; ?> />             
-              <?php } ?>            
+              <?php } ?>       
               <?php if (isset($pbo['catSel']) && (int)$pbo['catSel'] == 1) { ?> <span onmouseout="nxs_hidePopUpInfo('popOnlyCat');" onmouseover="nxs_showPopUpInfo('popOnlyCat', event);"><?php echo "*[".(substr_count($pbo['catSelEd'], ",")+1)."]*" ?></span><?php } ?>
               <?php if (isset($pbo['rpstOn']) && (int)$pbo['rpstOn'] == 1) { ?> <span onmouseout="nxs_hidePopUpInfo('popReActive');" onmouseover="nxs_showPopUpInfo('popReActive', event);"><?php echo "*[R]*" ?></span><?php } ?>
               <strong><?php  _e('Auto-publish to', 'nxs_snap'); ?> <?php echo $ntInfo['name']; ?> <i style="color: #005800;"><?php if($pbo['nName']!='') echo "(".$pbo['nName'].")"; ?></i></strong>

@@ -171,7 +171,6 @@ if (!class_exists("nxs_snapClassXI")) { class nxs_snapClassXI { var $ntInfo = ar
         if (isset($pval['postType'])) $options[$ii]['postType'] = $pval['postType'];         
         if (isset($pval['inclTags'])) $options[$ii]['inclTags'] = trim($pval['inclTags']); else $options[$ii]['inclTags'] = 0;
         if (isset($pval['msgFrmt'])) $options[$ii]['msgFrmt'] = trim($pval['msgFrmt']);        
-        if (isset($pval['msgTFrmt'])) $options[$ii]['msgTFrmt'] = trim($pval['msgTFrmt']);        
         
         $options[$ii] = nxs_adjRpst($options[$ii], $pval);       
         
@@ -187,11 +186,11 @@ if (!class_exists("nxs_snapClassXI")) { class nxs_snapClassXI { var $ntInfo = ar
         if (is_array($pMeta) && isset($pMeta[$ii]) && is_array($pMeta[$ii])) $ntOpt = $this->adjMetaOpt($ntOpt, $pMeta[$ii]);  
         if (empty($ntOpt['imgToUse'])) $ntOpt['imgToUse'] = ''; if (empty($ntOpt['urlToUse'])) $ntOpt['urlToUse'] = '';
         $doIT = $ntOpt['do'.$ntU] && (is_array($pMeta) || $ntOpt['catSel']!='1'); $imgToUse = $ntOpt['imgToUse']; $urlToUse = $ntOpt['urlToUse']; 
-        $isAvail = $ntOpt['appKey']!='' && $ntOpt['appSec']!=''; $msgFormat = htmlentities($ntOpt['msgFrmt'], ENT_COMPAT, "UTF-8");    $msgFormatT = htmlentities($ntOpt['msgTFrmt'], ENT_COMPAT, "UTF-8"); 
+        $isAvail = $ntOpt['appKey']!='' && $ntOpt['appSec']!=''; $msgFormat = htmlentities($ntOpt['msgFrmt'], ENT_COMPAT, "UTF-8");  
         $postType = $ntOpt['postType'];         
       ?>  
       <tr><th style="text-align:left;" colspan="2">
-      <?php if ($ntOpt['catSel']=='1' && trim($ntOpt['catSelEd'])!='')  { ?> <input type="hidden" class="nxs_XI" id="nxs_XI_<?php echo $ntU; ?><?php echo $ii; ?>" value="<?php echo $ntOpt['catSelEd']; ?>" /> <?php } ?>
+      <?php if ($ntOpt['catSel']=='1' && trim($ntOpt['catSelEd'])!='')  { ?> <input type="hidden" class="nxs_SC" id="nxs_SC_<?php echo $ntU; ?><?php echo $ii; ?>" value="<?php echo $ntOpt['catSelEd']; ?>" /> <?php } ?>
       <?php if (!empty($ntOpt['tagsSelX'])) { ?>  <input type="hidden" class="nxs_TG" id="nxs_TG_<?php echo $ntU; ?><?php echo $ii; ?>" value="<?php echo $ntOpt['tagsSelX']; ?>" /> <?php } ?>
       <?php if ($isAvail) { ?><input class="nxsGrpDoChb" value="1" id="do<?php echo $ntU.$ii; ?>" <?php if ($post->post_status == "publish") echo 'disabled="disabled"';?> type="checkbox" name="<?php echo $nt; ?>[<?php echo $ii; ?>][do<?php echo $ntU; ?>]" <?php if ((int)$doIT == 1) echo 'checked="checked" title="def"';  ?> /> 
       <?php if ($post->post_status == "publish") { ?> <input type="hidden" name="<?php echo $nt; ?>[<?php echo $ii; ?>][do<?php echo $ntU; ?>]" value="<?php echo $doIT;?>"> <?php } ?> <?php } ?>
@@ -239,7 +238,7 @@ if (!class_exists("nxs_snapClassXI")) { class nxs_snapClassXI { var $ntInfo = ar
   function adjMetaOpt($optMt, $pMeta){ if (isset($pMeta['isPosted'])) $optMt['isPosted'] = $pMeta['isPosted']; else  $optMt['isPosted'] = ''; 
     if (isset($pMeta['doXI'])) $optMt['doXI'] = $pMeta['doXI'] == 1?1:0; else { if (isset($pMeta['msgFormat'])) $optMt['doXI'] = 0; } 
     
-    if (isset($pMeta['msgFrmt'])) $optMt['msgFrmt'] = $pMeta['msgFrmt']; if (isset($pMeta['msgTFrmt'])) $optMt['msgTFrmt'] = $pMeta['msgTFrmt'];
+    if (isset($pMeta['msgFrmt'])) $optMt['msgFrmt'] = $pMeta['msgFrmt']; 
     if (isset($pMeta['postType'])) $optMt['postType'] = $pMeta['postType']; 
     
     if (isset($pMeta['imgToUse'])) $optMt['imgToUse'] = $pMeta['imgToUse'];  if (isset($pMeta['urlToUse'])) $optMt['urlToUse'] = $pMeta['urlToUse'];  
@@ -266,16 +265,15 @@ if (!function_exists("nxs_doPublishToXI")) { //## Post to XI. // V3 - imgToUse -
       $snap_ap = get_post_meta($postID, 'snap'.$ntCd, true); $snap_ap = maybe_unserialize($snap_ap);     
       if ($options['pType']!='aj' && is_array($snap_ap) && (nxs_chArrVar($snap_ap[$ii], 'isPosted', '1') || nxs_chArrVar($snap_ap[$ii], 'isPrePosted', '1'))) {
         $snap_isAutoPosted = get_post_meta($postID, 'snap_isAutoPosted', true); if ($snap_isAutoPosted!='2') {  
-           nxs_addToLogN('W', 'Notice', $logNT, '-=Duplicate=- Post ID:'.$postID, 'Already posted. No reason for posting duplicate'.' |'.$uqID); return;
+           nxs_addToLogN('W', 'Notice', $logNT, '-=Duplicate=- Post ID:'.$postID, 'Already posted. No reason for posting duplicate'.' |'); return;
         }
-      }       
-      $message = array('message'=>'', 'link'=>'', 'imageURL'=>'', 'videoURL'=>''); 
+      } $message = array('message'=>'', 'link'=>'', 'imageURL'=>'', 'videoURL'=>''); 
       
-      if ($postID=='0') { echo "Testing ... <br/><br/>"; $message['description'] = 'Test Post, Description';  $message['title'] = 'Test Post - Title';  $message['url'] = home_url();    
-      } else { nxs_metaMarkAsPosted($postID, $ntCd, $options['ii'], array('isPrePosted'=>'1'));  $post = get_post($postID); if(!$post) return; 
+      if ($postID=='0') { echo "Testing ... <br/><br/>"; $message['description'] = 'Test Post, Description';  $message['title'] = 'Test Post - Title';  $message['url'] = home_url(); } 
+      else { nxs_metaMarkAsPosted($postID, $ntCd, $options['ii'], array('isPrePosted'=>'1'));  $post = get_post($postID); if(!$post) return; 
         $postType = $options['postType']; $isNoImg = false; $tags = '';
         
-        $options['msgFrmt'] = nsFormatMessage($options['msgFrmt'], $postID, $addParams); $options['msgTFrmt'] = nsFormatMessage($options['msgTFrmt'], $postID, $addParams);
+        $options['msgFrmt'] = nsFormatMessage($options['msgFrmt'], $postID, $addParams); 
         
         $tggs = array(); if ($options['inclTags']=='1'){ $t = wp_get_post_tags($postID); $tggs = array(); foreach ($t as $tagA) {$tggs[] = $tagA->name;} $tags = $tggs; }        
                 
@@ -284,10 +282,7 @@ if (!function_exists("nxs_doPublishToXI")) { //## Post to XI. // V3 - imgToUse -
         if (preg_match("/noImg.\.png/i", $imgURL)) { $imgURL = ''; $isNoImg = true; }
         
         //## MyURL - URLToGo code
-        if (!isset($options['urlToUse']) || trim($options['urlToUse'])=='') $myurl =  trim(get_post_meta($postID, 'snap_MYURL', true)); if ($myurl!='') $options['urlToUse'] = $myurl;
-        if (isset($options['urlToUse']) && trim($options['urlToUse'])!='') { $urlToGo = $options['urlToUse']; $options['useFBGURLInfo'] = true; } else $urlToGo = get_permalink($postID);      
-        $gOptions = $plgn_NS_SNAutoPoster->nxs_options; $addURLParams = trim($gOptions['addURLParams']);  if($addURLParams!='') $urlToGo .= (strpos($urlToGo,'?')!==false?'&':'?').$addURLParams;                 
-        $message = array('url'=>$urlToGo, 'imageURL'=>$imgURL, 'noImg'=>$isNoImg, 'tags'=>$tags);                 
+        $options = nxs_getURL($options, $postID, $addParams); $urlToGo = $options['urlToUse'];  $message = array('url'=>$urlToGo, 'imageURL'=>$imgURL, 'noImg'=>$isNoImg, 'tags'=>$tags);                 
         $extInfo = ' | PostID: '.$postID." - ".(isset($post) && is_object($post)?$post->post_title:''); 
       }            
       //## Actual Post

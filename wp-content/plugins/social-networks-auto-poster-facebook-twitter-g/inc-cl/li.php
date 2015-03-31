@@ -166,7 +166,7 @@ if (!class_exists("nxs_snapClassLI")) { class nxs_snapClassLI { var $ntInfo = ar
             
             <table width="800" border="0" cellpadding="10">
             <tr><td colspan="2">
-            <div style="width:100%; text-align: center; color:#005800; font-weight: bold; font-size: 14px;">You can choose what API you would like to use. </div>
+            <div style="width:100%; text-align: center; color:#005800; font-weight: bold; font-size: 14px;">You can choose what API you would like to use. Please fill only one side, do not fill both. </div>
             </td></tr>
             <tr><td valign="top" width="50%" style="border-right: 1px solid #999;">
              <span style="color:#005800; font-weight: bold; font-size: 14px;">LinkedIn Native API:</span> Free built-in API from LinkedIn. Can be used for posting to your profile only. More secure, more stable. More complicated - requires LinkedIn App and authorization. <a target="_blank" href="http://www.nextscripts.com/setup-installation-linkedin-social-networks-auto-poster-wordpress/">LinkedIn Installation/configuration instructions</a><br/><br/>
@@ -401,9 +401,7 @@ if (!function_exists("nxs_doPublishToLI")) { //## Second Function to Post to LI
       else { $post = get_post($postID); if(!$post) return;   
         $options['liMsgFormat'] = nsFormatMessage($options['liMsgFormat'], $postID, $addParams);  $options['liMsgFormatT'] = nsTrnc(nsFormatMessage($options['liMsgFormatT'], $postID, $addParams), 200); 
         //## MyURL - URLToGo code
-        if (!isset($options['urlToUse']) || trim($options['urlToUse'])=='') $myurl =  trim(get_post_meta($postID, 'snap_MYURL', true)); if ($myurl!='') $options['urlToUse'] = $myurl;
-        if (isset($options['urlToUse']) && trim($options['urlToUse'])!='') { $urlToGo = $options['urlToUse']; $options['useFBGURLInfo'] = true; } else $urlToGo = get_permalink($postID);      
-        if($addParams!='') $urlToGo .= (strpos($urlToGo,'?')!==false?'&':'?').$addParams; 
+        $options = nxs_getURL($options, $postID, $addParams); $urlToGo = $options['urlToUse'];     
         $isAttachLI = $options['liAttch']; $title = nsTrnc($post->post_title, 200); nxs_metaMarkAsPosted($postID, $ntCd, $options['ii'], array('isPrePosted'=>'1')); 
         
         if ($options['liAttch']=='1') { 

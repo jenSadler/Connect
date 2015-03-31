@@ -202,7 +202,7 @@ if (!function_exists("nxs_rePostToPN_ajax")) {
 
 if (!function_exists("nxs_doPublishToPN")) { //## Second Function to Post to G+
   function nxs_doPublishToPN($postID, $options){ global $nxs_gCookiesArr, $plgn_NS_SNAutoPoster; $ntCd = 'PN'; $ntCdL = 'pn'; $ntNm = 'Pinterest';   $price = ''; 
-    if (!is_array($options)) $options = maybe_unserialize(get_post_meta($postID, $options, true));
+    if (!is_array($options)) $options = maybe_unserialize(get_post_meta($postID, $options, true)); if (empty($options['ck'])) $options['ck'] = '';
     // $backtrace = debug_backtrace(); nxs_addToLogN('W', 'Enter', $ntCd, 'I am here - '.$ntCd."|".print_r($backtrace, true), ''); 
     //if (isset($options['timeToRun'])) wp_unschedule_event( $options['timeToRun'], 'nxs_doPublishToPN',  array($postID, $options)); 
     $addParams = nxs_makeURLParams(array('NTNAME'=>$ntNm, 'NTCODE'=>$ntCd, 'POSTID'=>$postID, 'ACCNAME'=>$options['nName'])); 
@@ -222,9 +222,7 @@ if (!function_exists("nxs_doPublishToPN")) { //## Second Function to Post to G+
     }
     else { $post = get_post($postID); if(!$post) return; $options['pnMsgFormat'] = nsFormatMessage( $options['pnMsgFormat'], $postID, $addParams); 
       //## MyURL - URLToGo code
-      if (!isset($options['urlToUse']) || trim($options['urlToUse'])=='') $myurl = trim(get_post_meta($postID, 'snap_MYURL', true)); if ($myurl!='') $options['urlToUse'] = $myurl;
-      if (isset($options['urlToUse']) && trim($options['urlToUse'])!='') { $urlToGo = $options['urlToUse']; $options['useFBGURLInfo'] = true; } else $urlToGo = get_permalink($postID);      
-      if($addParams!='') $urlToGo .= (strpos($urlToGo,'?')!==false?'&':'?').$addParams;  if (is_object($post)) $urlToGo = apply_filters( 'nxs_adjust_ex_url', $urlToGo, $post->post_content); 
+      $options = nxs_getURL($options, $postID, $addParams); $urlToGo = $options['urlToUse']; if (is_object($post)) $urlToGo = apply_filters( 'nxs_adjust_ex_url', $urlToGo, $post->post_content); 
             
       if (!empty($options['imgToUse'])) $imgURL = $options['imgToUse']; else $imgURL = nxs_getPostImage($postID, 'full', $options['pnDefImg']); if (preg_match("/noImg.\.png/i", $imgURL)) $imgURL = ''; 
       if ($isAttachVid=='1') { $vids = nsFindVidsInPost($post); if (count($vids)>0) { $vidURL = 'http://www.youtube.com/v/'.$vids[0]; $imgURL = 'http://img.youtube.com/vi/'.$vids[0].'/0.jpg'; }}         

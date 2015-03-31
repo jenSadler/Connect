@@ -81,8 +81,96 @@ function slider_shortcode( $atts ){
 
   return $output;
 }
-add_shortcode( 'slider', 'slider_shortcode' );
 
+function slider2_shortcode( $atts ){
+  $output = '<div id="holdSlider">';
+  $output.='<div id="slider">';
+  $args = array( 'numberposts' => '3','meta_key' => '_thumbnail_id' );
+  $recent_posts = wp_get_recent_posts( $args );
+
+  $eventargs = array( 'numberposts'=>'3' );
+  $recent_events = tribe_get_events( $eventargs );
+  $countPosts = 0;
+  foreach( $recent_posts as $recent ){
+    $post = get_post($recent["ID"]);
+    if($countPosts ==0){
+      $output.= '<div class="active">';
+    }
+    else{
+
+       $output.= '<div>';
+    }
+
+    $output.= '<div class = "description">';
+    $output.= '<h1 class="slider">'.$post->post_title.'</h1>';
+    $output.= '<p class="slider">'.$post->post_excerpt.'</p>';
+    $output.= '</div>';
+
+   
+    $output.='<div class="holdDots">';
+
+    for($i=0;$i<count($recent_posts)+count($recent_events);$i++){
+      if($i==$countPosts){
+          $output .= '<div class="activeDot"></div>';
+
+      }
+      else{
+        $output .='<div class = "dot"></div>';
+      }
+    }
+    $output .='</div>';
+
+
+    $output.= '<div class="shadowWrapper"><a href="' . get_permalink($recent["ID"]). '">' . get_the_post_thumbnail($recent['ID'], 'banner') .'</a>';
+
+    $output.= '</div> ';
+
+    $output.='</div>';
+    $countPosts++;
+  }
+  
+  $countEvents=0;
+
+  foreach( $recent_events as $recentevent ){
+    $output.= '<div>';
+
+    $output.= '<div class = "description">';
+    $output.= '<h1 class="slider">'.$recentevent->post_title.'</h1>';
+    $output.= '<p class="slider">'.$recentevent->post_excerpt.'</p>';
+    $output.= '</div>';
+
+    $output.='<div class="holdDots">';
+    for($j=0;$j<count($recent_posts)+count($recent_events);$j++){
+        if($j==$countEvents +count($recent_posts)){
+            $output .= '<div class="activeDot"></div>';
+
+        }
+        else{
+          $output .='<div class = "dot"></div>';
+        }
+    }
+    $output .="</div>";
+    
+    $output.= '<div class="shadowWrapper"><a href="' . get_permalink($recentevent->ID) . '">' . get_the_post_thumbnail($recentevent->ID, 'banner') .'</a> </div>';
+    $output.= '</div>';
+    $countEvents++;
+  }
+
+  $output .= "</div>";
+
+  $output .= '<div id="holdOptions">';
+  $output .= '<div class="sliderOption" id="option1"> <a href="'.$atts['$link1'].'">'.$atts['$title1'].'</a></div>';
+  $output .= '<div class="sliderOption" id="option1"> <a href="'.$atts['$link2'].'">'.$atts['$title2'].'</a></div>';
+  $output .= '<div class="sliderOption" id="option1"> <a href="'.$atts['$link3'].'">'.$atts['$title3'].'</a></div>';
+  $output .= '<div class="sliderOption" id="option1"> <a href="'.$atts['$link4'].'">'.$atts['$title4'].'</a></div>';
+  $output .= '</div>';
+
+  $output .= "</div>";
+  return $output;
+}
+
+add_shortcode( 'slider_old', 'slider_shortcode' );
+add_shortcode( 'slider', 'slider2_shortcode' );
 
 function events_list_shortcode($atts){
 $output="<div id='newsBox' class='infoBox'><h1>".$atts['title']."</h1><ul>";

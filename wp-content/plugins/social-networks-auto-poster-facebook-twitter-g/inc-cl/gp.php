@@ -15,7 +15,7 @@ if (!class_exists("nxs_snapClassGP")) { class nxs_snapClassGP {
     if (!isset($options['nHrs'])) $options['nHrs'] = 0; if (!isset($options['nMin'])) $options['nMin'] = 0;  if (!isset($options['catSel'])) $options['catSel'] = 0;  if (!isset($options['catSelEd'])) $options['catSelEd'] = ''; 
     if (!isset($options['nDays'])) $options['nDays'] = 0; if (!isset($options['qTLng'])) $options['qTLng'] = ''; if (!isset($options['gpCCatsList'])) $options['gpCCatsList'] = '';  ?>
             <div id="doGP<?php echo $ii; ?>Div" class="insOneDiv<?php if ($isNew) echo " clNewNTSets"; ?>" >     <input type="hidden" name="apDoSGP<?php echo $ii; ?>" value="0" id="apDoSGP<?php echo $ii; ?>" />             
-            <?php if(!function_exists('doPostToGooglePlus') || (defined('d1') && d1==1)) {?><span style="color:#580000; font-size: 16px;"><br/><br/>
+            <?php if(!class_exists('nxsAPI_GP') || (defined('d1') && d1==1)) {?><span style="color:#580000; font-size: 16px;"><br/><br/>
             <b><?php _e('Google+ API Library not found', 'nxs_snap'); ?></b>
              <br/><br/> <?php _e('Google+ doesn\'t have a built-in API for automated posts yet.', 'nxs_snap'); ?> <br/><?php _e('The current <a target="_blank" href="http://developers.google.com/+/api/">Google+ API</a> is "Read Only" and can\'t be used for posting.  <br/><br/>You need to get a special <a target="_blank" href="http://www.nextscripts.com/google-plus-automated-posting"><b>API Library Module</b></a> to be able to publish your content to Google+.', 'nxs_snap'); ?></span></div>
             <?php return; }; ?>            
@@ -172,8 +172,8 @@ if (!class_exists("nxs_snapClassGP")) { class nxs_snapClassGP {
                 </th><td>     
         
         <input type="radio" name="gp[<?php echo $ii; ?>][postType]" value="T" <?php if ($gpPostType == 'T') echo 'checked="checked"'; ?> /> <?php _e('Text Post', 'nxs_snap') ?>  - <i><?php _e('just text message', 'nxs_snap') ?></i><br/>       
-        <input type="radio" name="gp[<?php echo $ii; ?>][postType]" value="I" <?php if ($gpPostType == 'I') echo 'checked="checked"'; ?> /> <?php _e('Post to Google+ as "Image post"', 'nxs_snap') ?> - <i><?php _e('big image with text message', 'nxs_snap') ?></i><br/>             
-        <input type="radio" name="gp[<?php echo $ii; ?>][postType]" value="A" <?php if ( !isset($gpPostType) || $gpPostType == '' || $gpPostType == 'A') echo 'checked="checked"'; ?> /><?php _e('Text Post with "attached" blogpost', 'nxs_snap') ?>
+        <input type="radio" name="gp[<?php echo $ii; ?>][postType]" value="I" <?php if ($gpPostType == 'I') echo 'checked="checked"'; ?> onchange="jQuery('#altFormatIMG<?php echo $nt.$ii;?>').show();" /> <?php _e('Post to Google+ as "Image post"', 'nxs_snap') ?> - <i><?php _e('big image with text message', 'nxs_snap') ?></i><br/>             
+        <input type="radio" name="gp[<?php echo $ii; ?>][postType]" value="A" <?php if ( !isset($gpPostType) || $gpPostType == '' || $gpPostType == 'A') echo 'checked="checked"'; ?> onchange="jQuery('#altFormatIMG<?php echo $nt.$ii;?>').hide();" /><?php _e('Text Post with "attached" blogpost', 'nxs_snap') ?>
         <div class="popShAtt" id="popShAtt<?php echo $ii; ?>XG"><h3><?php _e('Google+ Post Types', 'nxs_snap') ?></h3><img src="<?php echo $nxs_plurl; ?>img/gpPostTypesDiff6.png" width="600" height="285" alt="<?php _e('Google+ Post Types', 'nxs_snap') ?>"/></div>
      </td></tr>
          <?php if ($ntOpt['gpCommID']!='') { ?>
@@ -196,7 +196,7 @@ if (!class_exists("nxs_snapClassGP")) { class nxs_snapClassGP {
                 <input value="<?php echo $gpMsgFormat ?>" type="text" name="gp[<?php echo $ii; ?>][SNAPformat]"  style="width:60%;max-width: 610px;" onfocus="jQuery('.nxs_FRMTHint').hide();mxs_showFrmtInfo('apGPMsgFrmt<?php echo $ii; ?>');"/><?php nxs_doShowHint("apGPMsgFrmt".$ii); ?>
                 <?php } ?>
                 </td></tr>
-                <?php /* ## Select Image & URL ## */ nxs_showImgToUseDlg($nt, $ii, $imgToUse); nxs_showURLToUseDlg($nt, $ii, $urlToUse); ?>
+                <?php /* ## Select Image & URL ## */ nxs_showImgToUseDlg($nt, $ii, $imgToUse, ( !isset($gpPostType) || $gpPostType == '' || $gpPostType == 'A') ); nxs_showURLToUseDlg($nt, $ii, $urlToUse); ?>
            <?php } 
      }
   }
@@ -224,7 +224,7 @@ if (!function_exists("nxs_rePostToGP_ajax")) {
 if (!function_exists("nxs_doPublishToGP")) { //## Second Function to Post to G+
   function nxs_doPublishToGP($postID, $options){ $ntCd = 'GP'; $ntCdL = 'gp'; $ntNm = 'Google+';   global $plgn_NS_SNAutoPoster; $ytCode = ''; $imgURL = '';
       if (!is_array($options)) $options = maybe_unserialize(get_post_meta($postID, $options, true));
-      if (!function_exists('doPostToGooglePlus') || (defined('d1') && d1==1)) { nxs_addToLogN('E', 'Error', $ntCd, '-=ERROR=- No G+ API Lib Detected', ''); return "No G+ API Lib Detected";}
+      if (!class_exists('nxsAPI_GP') || (defined('d1') && d1==1)) { nxs_addToLogN('E', 'Error', $ntCd, '-=ERROR=- No G+ API Lib Detected', ''); return "No G+ API Lib Detected";}
       $addParams = nxs_makeURLParams(array('NTNAME'=>$ntNm, 'NTCODE'=>$ntCd, 'POSTID'=>$postID, 'ACCNAME'=>$options['nName']));
       if (empty($options['imgToUse'])) $options['imgToUse'] = ''; if (empty($options['imgSize'])) $options['imgSize'] = '';
       
@@ -248,10 +248,7 @@ if (!function_exists("nxs_doPublishToGP")) { //## Second Function to Post to G+
         if (preg_match("/noImg.\.png/i", $imgURL)) { $imgURL = ''; $isNoImg = true; }
         
         //## MyURL - URLToGo code
-        if (!isset($options['urlToUse']) || trim($options['urlToUse'])=='') $myurl = trim(get_post_meta($postID, 'snap_MYURL', true)); if (!empty($myurl)) $options['urlToUse'] = $myurl;
-        if (isset($options['urlToUse']) && trim($options['urlToUse'])!='') { $urlToGo = $options['urlToUse']; $options['useFBGURLInfo'] = true; } else $urlToGo = get_permalink($postID);    
-        if($addParams!='') $urlToGo .= (strpos($urlToGo,'?')!==false?'&':'?').$addParams; 
-        
+        $options = nxs_getURL($options, $postID, $addParams); $urlToGo = $options['urlToUse'];       
         $message = array('url'=>$urlToGo, 'imageURL'=>$imgURL, 'videoCode'=>$ytCode, 'noImg'=>$isNoImg); //prr($message); die();
       }            
       //## Actual Post

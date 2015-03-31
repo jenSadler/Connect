@@ -4,8 +4,8 @@ Contributors: NextScripts
 Donate link: http://www.nextscripts.com/social-networks-auto-poster-for-wordpress
 Tags: automation, autopost, auto-post, auto post, socialnetworks, socialnetwork, social networks, social network, facebook, Flipboard, google, google+, Flickr, twitter, google plus, pinterest, tumblr, blogger, blogspot, blogpost, linkedin, delicious, delicious.com, reddit, reddit.com, plugin, links, Post, posts, api, automatic, seo, scoop.it, integration, bookmark, FriendFeed, bookmarks, admin, images, image, social, sharing, share, repost, re-post, wordpress.com, StumbleUpon, Diigo, vBulletin, Plurk, forums, vKontakte, open graph, LiveJournal, SETT, YouTube, Kippt, xing
 Requires at least: 3.4
-Tested up to: 4.1.0
-Stable tag: 3.4.9
+Tested up to: 4.1.1
+Stable tag: 3.4.16
 License: GPLv2 or later
 
 Automatically re-publishes blogposts to Facebook, Twitter, Google+, Pinterest, LinkedIn, Blogger, Tumblr, Delicious, Plurk, etc profiles and/or pages
@@ -168,6 +168,44 @@ Please see more <a href="http://www.nextscripts.com/faq/">Frequently asked quest
 4. Google+: Types of Post 
 
 == Changelog ==
+
+= 3.4.16 [03/26/2015] =
+
+* New/Bug Fix - [Critical] Facebook API 2.3 Compatibility. Usage of API 2.3 was causing "ERROR(#200) The user hasn't authorized the application to perform this action"
+* New - New URL Shortener - x.co
+* New - Facebook videos are now supported for Facebook Video posts in addition to YouTube and Vimeo.
+* Notice - FriendFeed has been shut down permanently. It has been removed from SNAP.
+* Notice - DeviantArt API is being extremely unstable and buggy on their side for the last several months. Until further notice DeviantArt connector is provided "as is". Please use it on your own risk. 
+
+= 3.4.15 [03/12/2015] =
+
+* Bug Fix - [Critical] %TITLE% and some other message formatting tags were broken in the version 3.4.14
+
+= 3.4.14 [03/11/2015] =
+
+* Improvement - compatibility with QTranslate-X
+* Improvement - compatibility with new Facebook rules regarding video thumbnails.
+* Improvement - updated Facebook configuration interface. 
+* Bug Fix - po.st connection issues. 
+* Bug Fix - [Reset All SNAP Data] link wasn't working in some environments.
+* Bug Fix - [StumbleUpon] Fix for some connections issues.
+
+= 3.4.12 [02/23/2015] =
+
+* New - New URL Shortener - clk.im
+* New - New URL Shortener - po.st
+* New - "Force Shortened Links" option as well as "Shorten URL" checkbox on post settings will force shortened links to be used as attachments where possible. 
+* New - %ANNOUNCER% tag will insert the rest of the post left from %ANNOUNCE% tag.
+* New - %AUTHORTWNAME% tag will insert @twitter username from the user settings.
+* Improvement - [Twitter] More useful info on image errors.
+* Improvement/Bug Fix - %HCT-CustomTaxonomy% will replace spaces in tags.
+* Improvement/Bug Fix - [Flickr] More useful info on errors.
+* Bug Fix - [XING] Broken XING category exclusion/inclusion 
+
+= 3.4.10 [02/02/2015] =
+
+* Improvement/Bug Fix - compliance with new LinkedIn API changes causing "(#400) 'submitted-image-url' can not be empty" error
+* New - Twitter - ability to post Tweets as replies
 
 = 3.4.9 [01/28/2015] =
 

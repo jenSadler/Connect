@@ -32,6 +32,8 @@ p.slider {
   color: white; }
 
 #holdSlider {
+  margin-top: 20px;
+  margin-bottom: 20px;
   width: 100%;
   overflow: visible;
   height: 320px;

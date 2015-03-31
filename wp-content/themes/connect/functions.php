@@ -7,7 +7,7 @@ function infoBox_shortcode( $atts, $content = null ) {
        
     ), $atts );
 
-	return '<div class="infoBox"><h1>'.$a['title'].'</h1>' . $content . '</div>';
+	return '<div class="infoBox '.$atts['bgcolor'].'"><h1>'.$a['title'].'</h1>' . $content . '</div>';
 }
 add_shortcode( 'info-box', 'infoBox_shortcode' );
 
@@ -173,7 +173,7 @@ add_shortcode( 'slider_old', 'slider_shortcode' );
 add_shortcode( 'slider', 'slider2_shortcode' );
 
 function events_list_shortcode($atts){
-$output="<div id='newsBox' class='infoBox'><h1>".$atts['title']."</h1><ul>";
+$output="<div id='eventsBox' class='infoBox ".$atts['bgcolor']."'><h1>".$atts['title']."</h1><ul>";
 $args = array( 'numberposts' => '5' );
  $recent_events = tribe_get_events( $eventargs );
   foreach( $recent_events as $recentevent ){
@@ -184,8 +184,15 @@ return $output;
 }
 add_shortcode( 'events-list', 'events_list_shortcode' );
 
+function donate_shortcode($atts, $content = null){
+$output="<div id='donate' class='infoBox'><h1>".$atts["title"]."</h1>";
+$output.="<p>".$content."</p></div>";
+return $output;
+}
+add_shortcode( 'donate', 'donate_shortcode' );
+
 function news_list_shortcode($atts){
-  $output="<div id='newsBox' class='infoBox'><h1>".$atts['title']."</h1><ul>";
+  $output="<div id='newsBox' class='infoBox ".$atts['bgcolor']."'><h1>".$atts['title']."</h1><ul>";
   $args = array( 'numberposts' => '5' );
   $recent_posts = wp_get_recent_posts( $args );
   foreach( $recent_posts as $recent ){

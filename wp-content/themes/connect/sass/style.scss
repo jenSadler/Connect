@@ -166,13 +166,48 @@ div.account{
 
 .infoBox{
 	vertical-align: top;
-	width:27%;
-	padding:5px 1.5%;
-	margin:5px 1.5%;
+	width:30%;
+	padding:1.5%;
+	margin:0;
 	display: inline-block;
 	overflow: hidden;
-	min-height:150px;
+	height:225px;
+
+	ul{
+		vertical-align:top;
+	}
 	
+	h1{
+
+		font-size:24px;
+		color:$connectPurple;
+	}
+
+	a{
+		text-decoration:none;
+	}
+
+	a:hover{
+		color:$connectOrange;
+	}
+
+	
+	
+}
+
+.gray{
+		background-color:#F5F5F5;
+	}
+
+.white{
+		background-color:white;
+	}
+
+#donate{
+	background-color:$connectPurple;
+	h1{
+		color:white;
+	}
 }
 
 .infoBox >ul{

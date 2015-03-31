@@ -113,12 +113,32 @@ div.account {
 
 .infoBox {
   vertical-align: top;
-  width: 27%;
-  padding: 5px 1.5%;
-  margin: 5px 1.5%;
+  width: 30%;
+  padding: 1.5%;
+  margin: 0;
   display: inline-block;
   overflow: hidden;
-  min-height: 150px; }
+  height: 225px; }
+  .infoBox ul {
+    vertical-align: top; }
+  .infoBox h1 {
+    font-size: 24px;
+    color: #993399; }
+  .infoBox a {
+    text-decoration: none; }
+  .infoBox a:hover {
+    color: #ff9933; }
+
+.gray {
+  background-color: #F5F5F5; }
+
+.white {
+  background-color: white; }
+
+#donate {
+  background-color: #993399; }
+  #donate h1 {
+    color: white; }
 
 .infoBox > ul {
   margin-left: 20px; }

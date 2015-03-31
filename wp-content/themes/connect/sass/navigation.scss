@@ -41,16 +41,11 @@ nav#mainMenu > div#mainNav> ul > li{
     
 }
 
-// nav#mainMenu > div#mainNav> ul > li.active > a{color:white; background: $connectLightPurple; }
  nav#mainMenu > div#mainNav> ul > li.active > a{ text-decoration: underline; }
-
-// nav#mainMenu > div#mainNav> ul > li.current_page_ancestor > a{ color:white; background: $connectLightPurple; }
 nav#mainMenu > div#mainNav> ul > li.current_page_ancestor > a{text-decoration: underline;}
 
-// nav#mainMenu > div#mainNav> ul > li.active.crisisNav > a{color:white; background:  $connectLightPurple; }
 nav#mainMenu > div#mainNav> ul > li.active.crisisNav > a{text-decoration: underline;}
 
-// nav#mainMenu > div#mainNav> ul > li.current_page_ancestor.crisisNav > a{ color:white; background: $connectLightPurple; }
 nav#mainMenu > div#mainNav> ul > li.current_page_ancestor.crisisNav > a{ text-decoration: underline; }
 
 nav#mainMenu > div#mainNav> ul > li.active.crisisNav > a:hover{text-decoration: underline;  }
@@ -58,7 +53,7 @@ nav#mainMenu > div#mainNav> ul > li.active.crisisNav > a:hover{text-decoration: 
 nav#mainMenu > div#mainNav> ul > li.current_page_ancestor.crisisNav > a:hover{ text-decoration: underline; }
 
 nav#mainMenu > div#mainNav> ul >.crisisNav > a{
-
+    height:110%;
     background-color:$connectOrange;
     color:white;
 }

@@ -159,10 +159,10 @@ function slider2_shortcode( $atts ){
   $output .= "</div>";
 
   $output .= '<div id="holdOptions">';
-  $output .= '<div class="sliderOption" id="option1"> <a href="'.$atts['$link1'].'">'.$atts['$title1'].'</a></div>';
-  $output .= '<div class="sliderOption" id="option1"> <a href="'.$atts['$link2'].'">'.$atts['$title2'].'</a></div>';
-  $output .= '<div class="sliderOption" id="option1"> <a href="'.$atts['$link3'].'">'.$atts['$title3'].'</a></div>';
-  $output .= '<div class="sliderOption" id="option1"> <a href="'.$atts['$link4'].'">'.$atts['$title4'].'</a></div>';
+  $output .= '<div class="sliderOption" id="option1"> <div><a href="'.$atts['link1'].'">'.$atts['title1'].'</a></div></div>';
+  $output .= '<div class="sliderOption" id="option2"> <div><a href="'.$atts['link2'].'">'.$atts['title2'].'</a></div></div>';
+  $output .= '<div class="sliderOption" id="option3"> <div><a href="'.$atts['link3'].'">'.$atts['title3'].'</a></div></div>';
+  $output .= '<div class="sliderOption" id="option4"> <div><a href="'.$atts['link4'].'">'.$atts['title4'].'</a></div></div>';
   $output .= '</div>';
 
   $output .= "</div>";
@@ -199,7 +199,7 @@ function news_list_shortcode($atts){
 }
 
   add_shortcode( 'news-list', 'news_list_shortcode' );
-  add_image_size( "banner",720, 300, true );
+  add_image_size( "banner",960, 320, true );
 
 // Account Info Page
 function auth_redirect_login() {

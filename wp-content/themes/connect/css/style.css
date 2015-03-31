@@ -16,7 +16,7 @@ Tags: Tags to locate your theme in the WordPress theme repository
   min-width: 800px;
   max-width: 1280px;
   margin: 0 auto;
-  overflow: hidden; }
+  overflow: visible; }
 
 .alignment .alignment {
   min-width: 760px;

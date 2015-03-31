@@ -43,6 +43,7 @@ nav#mainMenu > div#mainNav > ul > li.current_page_ancestor.crisisNav > a:hover {
   text-decoration: underline; }
 
 nav#mainMenu > div#mainNav > ul > .crisisNav > a {
+  height: 110%;
   background-color: #ff9933;
   color: white; }
 

@@ -64,6 +64,8 @@ p.slider{
 	padding:0;
 	margin:0;
 	vertical-align:top;
+	z-index:-1;
+	position:relative;
 
 	.sliderOption{
 		width:100%;
@@ -139,6 +141,9 @@ p.slider{
 	padding:0;
 	width: 75%;
 	display:inline-block;
+	-webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.5);
 
 }
 	
@@ -151,12 +156,12 @@ p.slider{
 	width:100%;
 	height:100%;
 	opacity:0;
-	overflow:visible;
+	overflow:hidden;
 	display:block;
 	
 }
 
-#slider div.shadowWrapper img{
+#slider div.shadowWrapper a img{
 	position:relative;
 	top:0;
 	left:0;
@@ -166,15 +171,20 @@ p.slider{
 	z-index:-2;
 }
 
+#slider div.shadowWrapper a {
+	width:100%;
+	height:100%;
+	z-index:5;
+	position:relative;
+}
+
 #slider div.shadowWrapper{
 	width:100%;
 	height:100%;
 	position:static;
 	opacity:1;
 	background-color:transparent;
-	-webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.5);
-	-moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.5);
-	box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.5);
+
 }
 
 #slider div.description{
@@ -182,7 +192,7 @@ p.slider{
 	height:auto;
 	top:auto;
 	right:auto;
-	width:85%;
+	width:75%;
 	bottom:2.5%;
 	left:0;
 	background-color:black;
@@ -199,7 +209,7 @@ p.slider{
 	opacity:0;
 }
 
-#slider div.description div.dotContainer{
+#slider div div.holdDots{
 	position:absolute;
 	right:10px;
 	bottom:10px;
@@ -211,15 +221,33 @@ p.slider{
 	background-color:transparent;
 	padding:0;
 	margin:0;
+	z-index:21;
+
+	div.dot{
+		opacity:0.5 ;
+		display:inline-block;
+		border-radius:50%;
+		background-color:white;
+		width:7px;
+		height:7px;
+		display:inline-block;
+		vertical-align:top;
+		position:relative;
+		margin-right:15px;
+		border:1px solid #969696;
+	}
+	div.activeDot{
+		opacity:1 ;
+		display:inline-block;
+		border-radius:50%;
+		background-color:white;
+		width:7px;
+		height:7px;
+		display:inline-block;
+		vertical-align:top;
+		position:relative;
+		margin-right:15px;
+		border:1px solid #969696;
+	}
 } 
 
-#slider div.description div.dotContainer img{
-	opacity:0.25 ;
-	display:inline-block;
-	width:auto;
-	height:auto;
-}
-
-#slider div.description div.dotContainer img.activeDot{
-	opacity:1.0;
-}

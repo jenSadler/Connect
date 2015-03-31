@@ -34,8 +34,14 @@
 <header>
 
 	<div class="alignment">
-		<a href = "<?php echo esc_url(home_url('/'));?>"><img class="logo" src="<?php bloginfo('template_directory'); ?>/images/logo.png"/></a>
-
+		<div id="logoContainer">
+			<a href = "<?php echo esc_url(home_url('/'));?>"><img class="logo" src="<?php bloginfo('template_directory'); ?>/images/logo.png"/></a>
+		</div>
+		
+		<div id="sloganContainer">
+			<img  class="slogan" src = "<?php bloginfo('template_directory'); ?>/images/slogan.png"/>
+		</div>
+		
 		<div id="socialBar">
 			<?php echo loginLink();?>
 
@@ -45,10 +51,7 @@
 		
 		</div>
 
-		<div id="slogan">
-			<h1 class = "slogan1">Recovery is possible,</h1>
-			<h1 class = "slogan2">You're not alone.</h1>
-		</div>
+		
 	</div>
 
 	<nav id= "mainMenu">

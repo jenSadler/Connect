@@ -350,7 +350,9 @@ class MegaMenu extends walker_nav_menu {
     $item_output .= '</a>';
 
     $item_output .= '<div><div class="alignment">';
-
+    $item_output .= '<div class="navLinksColumn"><p>';
+      $item_output .=  apply_filters( 'the_description', $item->description, $item->ID ).'<p>';
+      $item_output .='</div>';
 
    // $item_output .= $args->after;
     $output .= $item_output;
@@ -366,16 +368,13 @@ class MegaMenu extends walker_nav_menu {
 
   		$item_output = $args->before;
 
-  		if($item->title == "Actions"){
-			$item_output .= '<div class="navLinksColumn"><p>';
-			$item_output .=  apply_filters( 'the_description', $item->description, $item->ID ).'<p>';
-			$item_output .= "<ul>";
-		}
-		else{
+  	//	if($item->title == "Actions"){
+			
+		
 			$item_output .= '<div class="navInfoColumn">';
 			$item_output .='<h1>'.$args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after.'</h1><ul>';
 			$item_output .= $args->after;
-		}
+		  $item_output .= "<ul>";
   		
 		 $output .= $item_output;
   	}

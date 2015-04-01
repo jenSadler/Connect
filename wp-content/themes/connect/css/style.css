@@ -139,6 +139,8 @@ div.account {
   background-color: #993399; }
   #donate h1 {
     color: white; }
+  #donate p {
+    color: white; }
 
 .infoBox > ul {
   margin-left: 20px;

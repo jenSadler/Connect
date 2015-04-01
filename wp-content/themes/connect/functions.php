@@ -350,6 +350,9 @@ class MegaMenu extends walker_nav_menu {
     $item_output .= '</a>';
 
     $item_output .= '<div><div class="alignment">';
+
+    
+
     $item_output .= '<div class="navLinksColumn"><p>';
       $item_output .=  apply_filters( 'the_description', $item->description, $item->ID ).'<p>';
       $item_output .='</div>';

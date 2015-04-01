@@ -34,6 +34,7 @@
 <header>
 
 	<div class="alignment">
+	<div id="topContainer">
 		<div id="logoContainer">
 			<a href = "<?php echo esc_url(home_url('/'));?>"><img class="logo" src="<?php bloginfo('template_directory'); ?>/images/logo.png"/></a>
 		</div>
@@ -50,7 +51,7 @@
 			</div>
 		
 		</div>
-
+	</div>
 		
 	</div>
 

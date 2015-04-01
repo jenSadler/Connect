@@ -21,7 +21,7 @@ h1.slider {
 
 p.slider {
   position: relative;
-  width: 85%;
+  width: 95%;
   font-size: 1em;
   font-family: 'Raleway', Arial, sans-serif;
   font-weight: 400;
@@ -162,7 +162,7 @@ p.slider {
   margin: 0;
   z-index: 21; }
   #slider div div.holdDots div.dot {
-    opacity: 0.5;
+    opacity: 0.25;
     display: inline-block;
     border-radius: 50%;
     background-color: white;

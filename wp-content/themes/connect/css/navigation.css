@@ -1,3 +1,6 @@
+header {
+  background-color: #F5F5F5; }
+
 nav#mainMenu a {
   text-decoration: none;
   font-family: 'Raleway', Arial, sans-serif;
@@ -58,6 +61,7 @@ nav#mainMenu > div#mainNav > ul > li > a {
   height: 50px;
   padding: 0 15%;
   line-height: 50px;
+  text-align: center;
   background-color: #993399;
   -webkit-transition: all .3s ease;
   -moz-transition: all .3s ease;
@@ -157,15 +161,23 @@ input.searchBox {
   margin: 0 0 0 auto;
   display: inline-block; }
 
+input.searchBox:focus + input.searchIcon {
+  border-color: #ff9933;
+  outline: none; }
+
+input.searchBox:focus {
+  border-color: #ff9933;
+  outline: none; }
+
 input.searchIcon {
-  vertical-align: top;
+  vertical-align: bottom;
   display: inline-block;
   margin: 0 auto 0 0;
   position: relative;
   border-bottom: 1px solid #993399;
   padding: 0px;
-  height: 26px;
-  left: -15px; }
+  height: 25px;
+  left: -12px; }
 
 div.loginLinks {
   display: inline-block;
@@ -180,8 +192,8 @@ div.loginLinks a {
 div#socialBar {
   display: inline-block;
   vertical-align: top;
-  margin: 35px 0px 0px 2.5%;
-  width: 29%;
+  margin: 5px 0px 0px 2.5%;
+  width: 20%;
   overflow: hidden;
   text-align: center; }
 
@@ -191,7 +203,7 @@ img.logo {
 #logoContainer {
   margin: 10px 2.5% 20px 0px;
   display: inline-block;
-  width: 29%;
+  width: 34%;
   overflow: hidden; }
 
 img.slogan {
@@ -201,7 +213,7 @@ img.slogan {
   vertical-align: top;
   display: inline-block;
   margin: 35px 2.5% 0px 2.5%;
-  width: 30%;
+  width: 34%;
   overflow: hidden; }
 
 nav#sideMenu li {

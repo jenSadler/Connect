@@ -103,6 +103,8 @@ p{
 	margin:0px 0px 10px 0px;
 }
 
+
+
 #body section a{
  
 	text-decoration: none;
@@ -206,6 +208,9 @@ div.account{
 #donate{
 	background-color:$connectPurple;
 	h1{
+		color:white;
+	}
+	p{
 		color:white;
 	}
 }

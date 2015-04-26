@@ -3,7 +3,7 @@
 	<section>
 		<h1>About</h1>
 		<ul>
-			<li>About Connect</li>
+			<li><a href="<?php echo site_url( "about-connect/", $scheme ); ?>">About Connect</a></li>
 			<li>Board Members</li>
 		</ul>
 	</section>
@@ -11,8 +11,8 @@
 	<section>
 		<h1>Join</h1>
 		<ul>
-			<li>Become a Member</li>
-			<li>Become a Volunteer</li>
+			<li><a href="<?php echo site_url( "get-involved/become-a-member/", $scheme ); ?>">Become a Member</a></li>
+			<li><a href="<?php echo site_url( "get-involved/volunteer-opportunities/", $scheme ); ?>">Become a Volunteer</a></li>
 			<li>Subscribe to our Newsletter</li>
 		</ul>
 	</section>

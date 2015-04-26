@@ -90,23 +90,24 @@ footer {
   bottom: 0;
   height: 200px;
   background-color: #383838; }
-
-footer h1 {
-  font-size: 15px;
-  color: #ff9933;
-  font-family: "Raleway", Arial, sans-serif; }
-
-footer section {
-  width: 30%;
-  margin: 1% 1% 1% 1%;
-  display: inline-block;
-  vertical-align: top; }
-
-footer li, footer p {
-  font-family: "Raleway", Arial, sans-serif;
-  color: white;
-  font-size: 13px;
-  font-weight: normal; }
+  footer h1 {
+    font-size: 15px;
+    color: #ff9933;
+    font-family: "Raleway", Arial, sans-serif; }
+  footer section {
+    width: 30%;
+    margin: 1% 1% 1% 1%;
+    display: inline-block;
+    vertical-align: top; }
+  footer li, footer p, footer a {
+    font-family: "Raleway", Arial, sans-serif;
+    color: white;
+    font-size: 13px;
+    font-weight: normal;
+    text-decoration: none;
+    transition: 0.2s ease-in; }
+  footer a:hover {
+    color: #ff9933; }
 
 div.account {
   padding: 2.5%; }

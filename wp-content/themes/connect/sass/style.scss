@@ -135,31 +135,37 @@ footer{
 	height:$footerHeight;
 	background-color:$connectFooter;
 		
+
+
+	h1{
+		font-size: 15px;
+		color:$connectOrange;
+		font-family: $connectMainFont;
+
+	}
+
+	section{
+		width:30%;
+		margin:1% 1% 1% 1%;
+		display:inline-block;
+		vertical-align: top;
+		
+	}
+
+	li, p, a{
+		font-family: $connectMainFont;
+		color:white;
+		font-size: 13px;
+		font-weight: normal;
+		text-decoration:none;
+		transition:0.2s ease-in;
+	}
+
+	a:hover{
+		color:$connectOrange;
+	}
+
 }
-
-footer h1{
-	font-size: 15px;
-	color:$connectOrange;
-	font-family: $connectMainFont;
-
-}
-
-footer section{
-	width:30%;
-	margin:1% 1% 1% 1%;
-	display:inline-block;
-	vertical-align: top;
-	
-}
-
-footer li, footer p{
-	font-family: $connectMainFont;
-	color:white;
-	font-size: 13px;
-	font-weight: normal;
-}
-
-
 
 //account
 div.account{

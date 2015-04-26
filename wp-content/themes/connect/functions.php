@@ -252,25 +252,25 @@ function loginLink(){
 		if (!current_user_can('administrator') && !is_admin()) {
 			if( $current_user->user_firstname ){
 
-				return '<div class="loginLinks"><a href="index.php?page_id=32">'. $current_user->user_firstname .'</a>' .'|<a href='.wp_logout_url( $redirect ).'>Sign Out</a></div>';
+				return '<div class="loginLinks"><a href="'.site_url( "account-info/", $scheme ).'">'. $current_user->user_firstname .'</a>' .'|<a href='.wp_logout_url( $redirect ).'>Sign Out</a></div>';
 			}
 			else{
-				return '<div class="loginLinks"><a href="index.php?page_id=32">'. $current_user->user_login.'</a></div>';
+				return '<div class="loginLinks"><a href="'.site_url( "account-info/", $scheme ).'">'. $current_user->user_login.'</a></div>';
 			}
 		}
 		else{
 			if( $current_user->user_firstname ){
 
-				return '<div class="loginLinks"><a href="wp-admin">'. $current_user->user_firstname .'</a>' .'|<a href='.wp_logout_url( $redirect ).'>Sign Out</a></div>';
+				return '<div class="loginLinks"><a href="'.site_url( "wp-admin", $scheme ).'">'. $current_user->user_firstname .'</a>' .'|<a href='.wp_logout_url( $redirect ).'>Sign Out</a></div>';
 			}
 			else{
-				return '<div class="loginLinks"><a href="wp-admin">'. $current_user->user_login.'</a></div>';
+				return '<div class="loginLinks"><a href="'.site_url( "wp-admin", $scheme ).'">'. $current_user->user_login.'</a></div>';
 			}
 
 		}
 	}
 	else{
-		return '<div class="loginLinks"><a href="'.get_site_url().'/wp-login.php">Sign In</a> |'.  wp_register('', '',$echo) . '</div>';
+		return '<div class="loginLinks"><a href="'.site_url( "wp-login.php", $scheme ).'">Sign In</a> |'.  wp_register('', '',$echo) . '</div>';
 ;
 	}
 }

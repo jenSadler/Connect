@@ -159,10 +159,10 @@ function slider2_shortcode( $atts ){
   $output .= "</div>";
 
   $output .= '<div id="holdOptions">';
-  $output .= '<div class="sliderOption" id="option1"> <div><a href="'.$atts['link1'].'">'.$atts['title1'].'</a></div></div>';
-  $output .= '<div class="sliderOption" id="option2"> <div><a href="'.$atts['link2'].'">'.$atts['title2'].'</a></div></div>';
-  $output .= '<div class="sliderOption" id="option3"> <div><a href="'.$atts['link3'].'">'.$atts['title3'].'</a></div></div>';
-  $output .= '<div class="sliderOption" id="option4"> <div><a href="'.$atts['link4'].'">'.$atts['title4'].'</a></div></div>';
+  $output .= '<div class="sliderOption" id="option1"> <div><a href="'.site_url( $atts['link1'], $scheme ).'">'.$atts['title1'].'</a></div></div>';
+  $output .= '<div class="sliderOption" id="option2"> <div><a href="'.site_url( $atts['link2'], $scheme ).'">'.$atts['title2'].'</a></div></div>';
+  $output .= '<div class="sliderOption" id="option3"> <div><a href="'.site_url( $atts['link3'], $scheme ).'">'.$atts['title3'].'</a></div></div>';
+  $output .= '<div class="sliderOption" id="option4"> <div><a href="'.site_url( $atts['link4'], $scheme ).'">'.$atts['title4'].'</a></div></div>';
   $output .= '</div>';
 
   $output .= "</div>";
@@ -177,7 +177,7 @@ $output="<div id='eventsBox' class='infoBox ".$atts['bgcolor']."'><h1>".$atts['t
 $args = array( 'numberposts' => '5' );
  $recent_events = tribe_get_events( $eventargs );
   foreach( $recent_events as $recentevent ){
-    $output.= '<li><a href="' . get_permalink($recentevent->ID) . '">' . $recentevent->post_title .'</a> </li> ';
+    $output.= '<li><a href="' . get_permalink($recentevent->ID) . '">'.tribe_get_start_date( $recentevent->ID, 'true', 'M j, g:ia' ).' • <strong>' . $recentevent->post_title .'</strong></a> </li> ';
   }
 $output .= "</ul></div>";
 return $output;
@@ -196,7 +196,7 @@ function news_list_shortcode($atts){
   $args = array( 'numberposts' => '5' );
   $recent_posts = wp_get_recent_posts( $args );
   foreach( $recent_posts as $recent ){
-    $output.= '<li><a href="' . get_permalink($recent["ID"]) . '">' .   $recent["post_title"].'</a> </li> ';
+    $output.= '<li><a href="' . get_permalink($recent["ID"]) . '">' .date( 'M j, g:ia', strtotime( $recent['post_date'] ) ).' • <strong>' .  $recent["post_title"].'</strong></a> </li> ';
   }
 
   $output .= "</ul></div>";

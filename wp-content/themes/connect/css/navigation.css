@@ -1,5 +1,9 @@
 header {
   background-color: #F5F5F5; }
+  header #watermark {
+    position: absolute;
+    right: 25%;
+    bottom: 20px; }
 
 nav#mainMenu a {
   text-decoration: none;

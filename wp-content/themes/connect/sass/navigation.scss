@@ -8,6 +8,12 @@ $navigationGrey:#E6E6E6;
 
 header{
     background-color:$connectHeaderGray;
+
+    #watermark{
+        position:absolute;
+        right:25%;
+        bottom:20px;
+    }
 }
 
 nav#mainMenu a { 

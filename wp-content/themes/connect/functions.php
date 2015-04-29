@@ -159,10 +159,10 @@ function slider2_shortcode( $atts ){
   $output .= "</div>";
 
   $output .= '<div id="holdOptions">';
-  $output .= '<div class="sliderOption" id="option1"> <div><a href="'.site_url( $atts['link1'], $scheme ).'">'.$atts['title1'].'</a></div></div>';
-  $output .= '<div class="sliderOption" id="option2"> <div><a href="'.site_url( $atts['link2'], $scheme ).'">'.$atts['title2'].'</a></div></div>';
-  $output .= '<div class="sliderOption" id="option3"> <div><a href="'.site_url( $atts['link3'], $scheme ).'">'.$atts['title3'].'</a></div></div>';
-  $output .= '<div class="sliderOption" id="option4"> <div><a href="'.site_url( $atts['link4'], $scheme ).'">'.$atts['title4'].'</a></div></div>';
+  $output .= '<div class="sliderOption" id="option1"> <a href="'.site_url( $atts['link1'], $scheme ).'"><span>'.$atts['title1'].'</span></a></div>';
+  $output .= '<div class="sliderOption" id="option2"> <a href="'.site_url( $atts['link2'], $scheme ).'"><span>'.$atts['title2'].'</span></a></div>';
+  $output .= '<div class="sliderOption" id="option3"> <a href="'.site_url( $atts['link3'], $scheme ).'"><span>'.$atts['title3'].'</span></a></div>';
+  $output .= '<div class="sliderOption" id="option4"> <a href="'.site_url( $atts['link4'], $scheme ).'"><span>'.$atts['title4'].'</span></a></div>';
   $output .= '</div>';
 
   $output .= "</div>";
@@ -185,7 +185,7 @@ return $output;
 add_shortcode( 'events-list', 'events_list_shortcode' );
 
 function donate_shortcode($atts, $content = null){
-$output="<div id='donate' class='infoBox'><h1>".$atts["title"]."</h1>";
+$output="<div id='donate' class='infoBox'><a href='".$atts["link"]."'><h1>".$atts["title"]."</h1>";
 $output.="<p>".$content."</p></div>";
 return $output;
 }

@@ -29,7 +29,7 @@ Tags: Tags to locate your theme in the WordPress theme repository
   position: relative; }
 
 #body {
-  padding-bottom: 200px; }
+  padding-bottom: 210px; }
 
 #body section ul, #body section ol {
   padding-left: 50px; }
@@ -88,14 +88,26 @@ footer {
   width: 100%;
   position: absolute;
   bottom: 0;
-  height: 200px;
-  background-color: #383838; }
+  height: 210px;
+  background-color: #383838;
+  overflow: visible; }
+  footer #socialLinks {
+    position: relative;
+    height: 200px;
+    bottom: 30px;
+    background-color: #383838;
+    border-radius: 35px 35px 0px 0px;
+    -moz-border-radius: 35px 35px 0px 0px;
+    -webkit-border-radius: 35px 35px 0px 0px;
+    display: inline-block;
+    padding: 10px  10px 0px 10px;
+    width: 50px; }
   footer h1 {
     font-size: 15px;
     color: #ff9933;
     font-family: "Raleway", Arial, sans-serif; }
   footer section {
-    width: 30%;
+    width: 27%;
     margin: 1% 1% 1% 1%;
     display: inline-block;
     vertical-align: top; }
@@ -129,6 +141,10 @@ div.account {
     text-decoration: none; }
   .infoBox a:hover {
     color: #ff9933; }
+    .infoBox a:hover span {
+      color: #ff9933; }
+  .infoBox span {
+    font-weight: bold; }
 
 .gray {
   background-color: #F5F5F5; }

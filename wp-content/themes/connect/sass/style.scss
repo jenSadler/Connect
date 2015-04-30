@@ -18,7 +18,9 @@ $connectMainFont:'Raleway', Arial, sans-serif;
 $connectHeaderFont:'Raleway', Arial, sans-serif;
 $connectParagraphFont:'Raleway', Arial, sans-serif;
 
-$footerHeight:200px;
+$footerHeight:210px;
+$socialHeight:200px;
+$sfDifference:30px;
 
 *{
 	margin:0;
@@ -136,8 +138,21 @@ footer{
 	bottom:0;
 	height:$footerHeight;
 	background-color:$connectFooter;
-		
+	overflow:visible;
 
+	
+	#socialLinks{
+		position:relative;
+		height:$socialHeight;
+		bottom:$sfDifference;
+		background-color:$connectFooter;
+		border-radius: 35px 35px 0px 0px;
+		-moz-border-radius: 35px 35px 0px 0px;
+		-webkit-border-radius: 35px 35px 0px 0px;
+		display:inline-block;
+		padding:10px  10px 0px 10px;
+		width:50px;
+	}
 
 	h1{
 		font-size: 15px;
@@ -147,7 +162,7 @@ footer{
 	}
 
 	section{
-		width:30%;
+		width:27%;
 		margin:1% 1% 1% 1%;
 		display:inline-block;
 		vertical-align: top;
@@ -199,8 +214,15 @@ div.account{
 
 	a:hover{
 		color:$connectOrange;
+
+		span{
+			color:$connectOrange;
+		}
 	}
 
+	span{
+		font-weight:bold;
+	}
 	
 	
 }

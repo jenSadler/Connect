@@ -21,9 +21,13 @@
 		<h1>Contact</h1>
 		<p>Phone:	519-679-4040</p>
 		<p>Mail:	Connect for Mental Health Inc. <br/> 515 Richmond St. PO Box 42,<br/> London Center London,<br/> ON N6A 4V3</p>
-
-
 	</section>
+
+	<div id="socialLinks">
+		<a href="http://youtube.com"><img src="<?php bloginfo('template_directory'); ?>/images/youtube-bottom.png"/></a>
+		<a href="http://twitter.com"><img src="<?php bloginfo('template_directory'); ?>/images/twitter-bottom.png"/></a>
+		<a href="http://facebook.com"><img src="<?php bloginfo('template_directory'); ?>/images/facebook-bottom.png"/></a>
+	</div>
 </div>
 </footer>
 <?php wp_footer(); ?>

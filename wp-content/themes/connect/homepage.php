@@ -1,6 +1,6 @@
 <?php 
 /*
-Template Name: Home
+Template Name: Homepage
 */
 
 get_header(); ?>

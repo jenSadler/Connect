@@ -42,6 +42,32 @@ Tags: Tags to locate your theme in the WordPress theme repository
   padding-top: 5px;
   font-size: 15px; }
 
+#body section .ss-form-container textarea, #body section .ss-form-container input {
+  width: 90%;
+  background-color: white;
+  padding: 10px; }
+
+#body section .ss-choice-item-control input {
+  width: auto;
+  padding: 10px; }
+
+#body section .ss-form-container input#ss-submit {
+  width: 150px;
+  padding: 20px;
+  font-size: 19px;
+  color: white;
+  background-color: #ff9933;
+  font-weight: bold;
+  border: none;
+  text-align: center;
+  cursor: pointer; }
+
+#body section div.ss-item {
+  margin-top: 20px; }
+
+div.ss-form-entry {
+  width: 100%; }
+
 html, body {
   height: 100%; }
 
@@ -68,6 +94,12 @@ p {
   font-family: "Raleway", Arial, sans-serif;
   font-size: 15px;
   margin: 0px 0px 10px 0px; }
+
+#body section a.postLink {
+  color: black; }
+
+#body section a.postLink:hover {
+  color: #ff9933; }
 
 #body section a {
   text-decoration: none;
@@ -143,6 +175,10 @@ div.account {
     color: #ff9933; }
     .infoBox a:hover span {
       color: #ff9933; }
+  .infoBox a.highlightPurple {
+    color: #993399; }
+  .infoBox a.highlightOrange {
+    color: #ff9933; }
   .infoBox span {
     font-weight: bold; }
 
@@ -162,5 +198,14 @@ div.account {
 .infoBox > ul {
   margin-left: 20px;
   list-style-type: circle; }
+
+.post {
+  overflow: hidden; }
+  .post img.newsThumbnail {
+    float: left;
+    clear: both;
+    padding: 5px;
+    background-color: #F5F5F5;
+    margin: 0px 20px 40px 20px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -15,8 +15,11 @@ wp_nav_menu( $args ); ?>
 
 	<section>
 <?php if (have_posts()) : while (have_posts()) : the_post();?>
-    <div class="post">
-        <h1 id="post-<?php the_ID(); ?>"><?php the_title();?></h1>
+    <div class="posting">
+        <?php if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
+            the_post_thumbnail("banner");
+        }?>
+        <h1 id="posting-<?php the_ID(); ?>"><?php the_title();?></h1>
         <div class="entrytext">
             <?php the_content('<p class="serif">Read the rest of this page »</p>'); ?>
         </div>

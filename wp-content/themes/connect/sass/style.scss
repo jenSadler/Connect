@@ -73,6 +73,36 @@ $sfDifference:30px;
 }
 
 
+#body section .ss-form-container textarea,#body section .ss-form-container input{
+	width:90%;
+	background-color:white;
+	padding:10px;
+}
+
+#body section .ss-choice-item-control input{
+	width:auto;
+	padding:10px;
+}
+
+#body section .ss-form-container input#ss-submit{
+	width:150px;
+	padding:20px;
+	font-size:19px;
+	color:white;
+	background-color:$connectOrange;
+	font-weight:bold;
+	border:none;
+	text-align:center;
+	cursor:pointer;
+}
+
+#body section div.ss-item{
+	margin-top:20px;
+}
+
+div.ss-form-entry{
+	width:100%;
+}
 
 html,body{
 	height:100%;
@@ -107,7 +137,13 @@ p{
 	margin:0px 0px 10px 0px;
 }
 
+#body section a.postLink{
+		color:black;
+	}
 
+#body section a.postLink:hover{
+		color:$connectOrange;
+	}
 
 #body section a{
  
@@ -117,7 +153,6 @@ p{
 }
 
 #body section a:hover{
-
 	color:$connectPurple;
 }
 
@@ -182,6 +217,7 @@ footer{
 		color:$connectOrange;
 	}
 
+
 }
 
 //account
@@ -220,6 +256,14 @@ div.account{
 		}
 	}
 
+	a.highlightPurple{
+		color:$connectPurple;
+	}
+
+	a.highlightOrange{
+		color:$connectOrange;
+	}
+
 	span{
 		font-weight:bold;
 	}
@@ -250,3 +294,20 @@ div.account{
 	margin-left:20px;
 	list-style-type:circle;
 }
+
+
+.post{
+
+	overflow:hidden;
+
+
+	 img.newsThumbnail{
+		float:left;
+		clear:both;
+		padding:5px;
+		background-color:$connectHeaderGray;
+		margin:0px 20px 40px 20px;
+	}
+
+}
+

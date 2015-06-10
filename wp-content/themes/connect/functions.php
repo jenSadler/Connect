@@ -185,8 +185,18 @@ function events_list_shortcode($atts){
 add_shortcode( 'events-list', 'events_list_shortcode' );
 
 function donate_shortcode($atts, $content = null){
+
+  
+
   $output='<a href="'.$atts["donateLink"].'"><div id="donate" class="infoBox"><h1>'.$atts["title"].'</h1>';
-  $output.="<p>".$content."</p></div></a>";
+  $output.="<p>".$content."</p>";
+
+  $output .= '<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="JQRX7MNQ4YLDJ">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form></div></a>';
   return $output;
 }
 add_shortcode( 'donate', 'donate_shortcode' );

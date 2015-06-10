@@ -3,7 +3,8 @@
 	<section>
 		<h1>About</h1>
 		<ul>
-			<li><a href="<?php echo site_url( "about-connect/", $scheme ); ?>">About Connect</a></li>
+			<li><a href="<?php echo site_url( "about-connect/", $scheme ); ?>">About CONNECT</a></li>
+			<li><a href="<?php echo site_url( "connect-timeline/", $scheme ); ?>">CONNECT Timeline</a></li>
 			<li>Board Members</li>
 		</ul>
 	</section>
@@ -25,8 +26,8 @@
 
 	<div id="socialLinks">
 		<a href="http://youtube.com"><img src="<?php bloginfo('template_directory'); ?>/images/youtube-bottom.png"/></a>
-		<a href="http://twitter.com"><img src="<?php bloginfo('template_directory'); ?>/images/twitter-bottom.png"/></a>
-		<a href="http://facebook.com"><img src="<?php bloginfo('template_directory'); ?>/images/facebook-bottom.png"/></a>
+		<a href="https://twitter.com/ConnectforMH"><img src="<?php bloginfo('template_directory'); ?>/images/twitter-bottom.png"/></a>
+		<a href="https://www.facebook.com/ConnectforMH"><img src="<?php bloginfo('template_directory'); ?>/images/facebook-bottom.png"/></a>
 	</div>
 </div>
 </footer>

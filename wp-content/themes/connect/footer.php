@@ -14,7 +14,7 @@
 		<ul>
 			<li><a href="<?php echo site_url( "get-involved/become-a-member/", $scheme ); ?>">Become a Member</a></li>
 			<li><a href="<?php echo site_url( "get-involved/volunteer-opportunities/", $scheme ); ?>">Become a Volunteer</a></li>
-			<li>Subscribe to our Newsletter</li>
+			<li><a href="<?php echo site_url( "newsletter", $scheme ); ?>">Subscribe to our Newsletter</a></li>
 		</ul>
 	</section>
 

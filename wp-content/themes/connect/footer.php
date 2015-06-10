@@ -5,7 +5,7 @@
 		<ul>
 			<li><a href="<?php echo site_url( "about-connect/", $scheme ); ?>">About CONNECT</a></li>
 			<li><a href="<?php echo site_url( "connect-timeline/", $scheme ); ?>">CONNECT Timeline</a></li>
-			<li>Board Members</li>
+			<li><a href="<?php echo site_url( "board-members/", $scheme ); ?>">Board Members</a></li>
 		</ul>
 	</section>
 

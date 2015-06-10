@@ -365,7 +365,7 @@ class MegaMenu extends walker_nav_menu {
 
     $item_output .= '<div class="navLinksColumn"><p>';
       $item_output .=  apply_filters( 'the_description', $item->description, $item->ID ).'<p>';
-      $item_output .= '<img id="watermark" src = "'.get_bloginfo('template_directory').'/images/watermark.png"/>';
+      // $item_output .= '<img id="watermark" src = "'.get_bloginfo('template_directory').'/images/watermark.png"/>';
       $item_output .='</div>';
 
    // $item_output .= $args->after;
